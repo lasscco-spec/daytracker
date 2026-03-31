@@ -109,10 +109,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .psrow{display:flex;gap:8px;margin-bottom:14px}
 /* HUNGER SLIDER */
 .hslider-wrap{margin-bottom:14px}
-.hslider{display:flex;align-items:center;gap:10px}
-.hslider input[type=range]{flex:1;-webkit-appearance:none;height:6px;border-radius:3px;background:var(--sf2);outline:none}
-.hslider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--tx);cursor:pointer}
-.hval{font-size:18px;font-weight:700;font-family:'DM Mono',monospace;min-width:28px;text-align:center}
+.hslider{display:flex;flex-direction:column;gap:10px}
+.hslider-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--tx3)}
+.heart-slider{position:relative;padding:8px 4px}
+.heart-slider input[type=range]{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer;touch-action:pan-x}
+.heart-row{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;align-items:center}
+.heart-row img{width:100%;max-width:28px;aspect-ratio:1;display:block;justify-self:center;image-rendering:pixelated;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.hval{font-size:16px;font-weight:700;font-family:'DM Mono',monospace;text-align:right;min-width:24px}
 /* STATS */
 .ptabs{display:flex;gap:6px;margin-bottom:16px}
 .ptab{flex:1;padding:8px;border-radius:8px;border:1px solid var(--bd);background:var(--sf);color:var(--tx2);font-size:13px;font-weight:600;cursor:pointer;text-align:center;-webkit-user-select:none}
@@ -352,20 +355,30 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
     <div class="fg">
       <label class="fl">먹기 전 배고픔 <span id="hb-val" style="color:var(--tx);font-weight:700">5</span></label>
       <div class="hslider">
-        <span style="font-size:12px;color:var(--tx3)">0</span>
-        <input type="range" min="0" max="10" value="5" id="hunger-before">
-        <span style="font-size:12px;color:var(--tx3)">10</span>
-        <div class="hval" id="hb-num">5</div>
+        <div class="heart-slider">
+          <input type="range" min="0" max="10" value="5" id="hunger-before">
+          <div class="heart-row" id="hb-hearts" aria-hidden="true"></div>
+        </div>
+        <div class="hslider-meta">
+          <span>배고픔</span>
+          <div class="hval" id="hb-num">5</div>
+          <span>배부름</span>
+        </div>
       </div>
     </div>
     <!-- hunger after -->
     <div class="fg">
       <label class="fl">먹은 후 배고픔 <span id="ha-val" style="color:var(--tx);font-weight:700">2</span></label>
       <div class="hslider">
-        <span style="font-size:12px;color:var(--tx3)">0</span>
-        <input type="range" min="0" max="10" value="2" id="hunger-after">
-        <span style="font-size:12px;color:var(--tx3)">10</span>
-        <div class="hval" id="ha-num">2</div>
+        <div class="heart-slider">
+          <input type="range" min="0" max="10" value="2" id="hunger-after">
+          <div class="heart-row" id="ha-hearts" aria-hidden="true"></div>
+        </div>
+        <div class="hslider-meta">
+          <span>배고픔</span>
+          <div class="hval" id="ha-num">2</div>
+          <span>배부름</span>
+        </div>
       </div>
     </div>
     <!-- cost -->
@@ -719,7 +732,8 @@ function openMeal(){
   document.getElementById('fc').value='';document.getElementById('fg2').value='';
   document.getElementById('meal-cost').value='';
   document.getElementById('hunger-before').value=5;document.getElementById('hunger-after').value=2;
-  document.getElementById('hb-num').textContent='5';document.getElementById('ha-num').textContent='2';
+  updateHungerSlider('hunger-before','hb-hearts','hb-num','hb-val');
+  updateHungerSlider('hunger-after','ha-hearts','ha-num','ha-val');
   // set current time
   const now=new Date();
   document.getElementById('meal-time-input').value=`${f2(now.getHours())}:${f2(now.getMinutes())}`;
@@ -730,8 +744,8 @@ document.getElementById('meal-cam-btn').addEventListener('click',()=>document.ge
 document.getElementById('meal-gal-btn').addEventListener('click',()=>document.getElementById('fg2').click());
 document.getElementById('fc').addEventListener('change',e=>handlePh(e));
 document.getElementById('fg2').addEventListener('change',e=>handlePh(e));
-document.getElementById('hunger-before').addEventListener('input',function(){document.getElementById('hb-num').textContent=this.value});
-document.getElementById('hunger-after').addEventListener('input',function(){document.getElementById('ha-num').textContent=this.value});
+document.getElementById('hunger-before').addEventListener('input',function(){updateHungerSlider('hunger-before','hb-hearts','hb-num','hb-val')});
+document.getElementById('hunger-after').addEventListener('input',function(){updateHungerSlider('hunger-after','ha-hearts','ha-num','ha-val')});
 
 function handlePh(e){
   const f=e.target.files[0];if(!f)return;
@@ -1142,6 +1156,43 @@ function createHeartSlider(containerId, inputId){
   });
   render();
 }
+</script>
+
+<script>
+const HEART_FULL_SRC = './1.png';
+const HEART_EMPTY_SRC = './3.png';
+
+function updateHungerSlider(inputId, heartsId, numberId, labelId){
+  const input = document.getElementById(inputId);
+  const hearts = document.getElementById(heartsId);
+  const number = document.getElementById(numberId);
+  const label = document.getElementById(labelId);
+  const value = parseInt(input && input.value, 10) || 0;
+
+  if(number) number.textContent = value;
+  if(label) label.textContent = value;
+  if(!hearts) return;
+
+  hearts.innerHTML = '';
+  for(let i=0;i<10;i++){
+    const img = document.createElement('img');
+    img.src = i < value ? HEART_FULL_SRC : HEART_EMPTY_SRC;
+    img.alt = '';
+    hearts.appendChild(img);
+  }
+}
+
+const hbMeta = document.getElementById('hb-num');
+if(hbMeta && hbMeta.parentElement){
+  hbMeta.parentElement.innerHTML = '<span>Empty</span><div class="hval" id="hb-num">5</div><span>Full</span>';
+}
+const haMeta = document.getElementById('ha-num');
+if(haMeta && haMeta.parentElement){
+  haMeta.parentElement.innerHTML = '<span>Empty</span><div class="hval" id="ha-num">2</div><span>Full</span>';
+}
+
+updateHungerSlider('hunger-before','hb-hearts','hb-num','hb-val');
+updateHungerSlider('hunger-after','ha-hearts','ha-num','ha-val');
 </script>
 
 </body>
