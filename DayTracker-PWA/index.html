@@ -356,7 +356,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
       <label class="fl">먹기 전 배고픔 <span id="hb-val" style="color:var(--tx);font-weight:700">5</span></label>
       <div class="hslider">
         <div class="heart-slider">
-          <input type="range" min="0" max="10" value="5" id="hunger-before">
+          <input type="range" min="0" max="10" step="0.5" value="5" id="hunger-before">
           <div class="heart-row" id="hb-hearts" aria-hidden="true"></div>
         </div>
         <div class="hslider-meta">
@@ -371,7 +371,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
       <label class="fl">먹은 후 배고픔 <span id="ha-val" style="color:var(--tx);font-weight:700">2</span></label>
       <div class="hslider">
         <div class="heart-slider">
-          <input type="range" min="0" max="10" value="2" id="hunger-after">
+          <input type="range" min="0" max="10" step="0.5" value="2" id="hunger-after">
           <div class="heart-row" id="ha-hearts" aria-hidden="true"></div>
         </div>
         <div class="hslider-meta">
@@ -762,8 +762,8 @@ document.addEventListener('DOMContentLoaded', function(){
   const note=document.getElementById('mnote').value.trim();
   const timeStr=document.getElementById('meal-time-input').value;
   const costVal=parseInt(document.getElementById('meal-cost').value)||0;
-  const hb=parseInt(document.getElementById('hunger-before').value);
-  const ha=parseInt(document.getElementById('hunger-after').value);
+  const hb=parseFloat(document.getElementById('hunger-before').value);
+  const ha=parseFloat(document.getElementById('hunger-after').value);
   // build time
   let mealTime=new Date();
   if(timeStr){const[hh,mm]=timeStr.split(':').map(Number);mealTime=new Date();mealTime.setHours(hh,mm,0,0);}
@@ -1160,23 +1160,29 @@ function createHeartSlider(containerId, inputId){
 
 <script>
 const HEART_FULL_SRC = './1.png';
+const HEART_HALF_SRC = './2.png';
 const HEART_EMPTY_SRC = './3.png';
+
+function formatHungerValue(value){
+  return Number.isInteger(value) ? String(value) : value.toFixed(1);
+}
 
 function updateHungerSlider(inputId, heartsId, numberId, labelId){
   const input = document.getElementById(inputId);
   const hearts = document.getElementById(heartsId);
   const number = document.getElementById(numberId);
   const label = document.getElementById(labelId);
-  const value = parseInt(input && input.value, 10) || 0;
+  const value = parseFloat(input && input.value) || 0;
 
-  if(number) number.textContent = value;
-  if(label) label.textContent = value;
+  if(number) number.textContent = formatHungerValue(value);
+  if(label) label.textContent = formatHungerValue(value);
   if(!hearts) return;
 
   hearts.innerHTML = '';
   for(let i=0;i<10;i++){
     const img = document.createElement('img');
-    img.src = i < value ? HEART_FULL_SRC : HEART_EMPTY_SRC;
+    const heartValue = value - i;
+    img.src = heartValue >= 1 ? HEART_FULL_SRC : heartValue >= 0.5 ? HEART_HALF_SRC : HEART_EMPTY_SRC;
     img.alt = '';
     hearts.appendChild(img);
   }

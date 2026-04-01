@@ -1,5 +1,5 @@
-const CACHE = 'daytracker-v1';
-const ASSETS = ['/', '/index.html', '/manifest.json'];
+const CACHE = 'daytracker-v2';
+const ASSETS = ['/', '/index.html', '/manifest.json', '/1.png', '/2.png', '/3.png', '/icon-192.png', '/icon-512.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
@@ -14,7 +14,14 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
+  const req = e.request;
   e.respondWith(
-    caches.match(e.request).then(r => r || fetch(e.request).catch(()=>caches.match('/index.html')))
+    caches.match(req).then(r => {
+      if (r) return r;
+      return fetch(req).catch(() => {
+        if (req.mode === 'navigate') return caches.match('/index.html');
+        return Response.error();
+      });
+    })
   );
 });
