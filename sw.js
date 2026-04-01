@@ -1,27 +1,34 @@
-const CACHE = "daytracker-clean-v1";
-const ASSETS = ["./", "./index.html", "./manifest.json", "./1.png", "./2.png", "./3.png"];
+﻿const CACHE = 'daytracker-v5-claude-code-v1';
+const ASSETS = ['./', './index.html', './manifest.json'];
 
-self.addEventListener("install", event => {
+self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
   self.skipWaiting();
 });
 
-self.addEventListener("activate", event => {
+self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key))))
   );
   self.clients.claim();
 });
 
-self.addEventListener("fetch", event => {
-  const req = event.request;
+self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') return;
+
   event.respondWith(
-    caches.match(req).then(hit => {
-      if (hit) return hit;
-      return fetch(req).catch(() => {
-        if (req.mode === "navigate") return caches.match("./index.html");
-        return Response.error();
-      });
+    caches.match(event.request).then(cached => {
+      if (cached) return cached;
+
+      return fetch(event.request)
+        .then(response => {
+          const copy = response.clone();
+          if (new URL(event.request.url).origin === self.location.origin) {
+            caches.open(CACHE).then(cache => cache.put(event.request, copy));
+          }
+          return response;
+        })
+        .catch(() => (event.request.mode === 'navigate' ? caches.match('./index.html') : Promise.reject()));
     })
   );
 });
