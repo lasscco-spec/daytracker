@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -187,7 +187,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 <div id="today-page" class="page active">
   <div class="hero">
     <div style="font-size:13px;color:var(--tx2);font-weight:500" id="td"></div>
-    <div style="font-size:26px;font-weight:700;letter-spacing:-.5px;margin-top:4px" id="tg">오늘</div>
+    <div style="font-size:26px;font-weight:700;letter-spacing:-.5px;margin-top:4px" id="tg">?ㅻ뒛</div>
   </div>
   <div class="wrow" id="wr"></div>
   <div class="abc" id="abc">
@@ -195,40 +195,40 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
       <div id="abi" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px"></div>
       <div><div id="abl" style="font-size:17px;font-weight:600"></div><div id="abe" style="font-size:13px;color:var(--tx2);font-family:'DM Mono',monospace">00:00</div></div>
     </div>
-    <button class="btn bd2" style="width:100%" id="stop-btn">⏹ 종료</button>
+    <button class="btn bd2" style="width:100%" id="stop-btn">??醫낅즺</button>
   </div>
   <div class="srow">
-    <div class="sp"><div class="spi">🌙</div><div class="spv" id="ss">-</div><div class="spl">수면</div></div>
-    <div class="sp"><div class="spi">🍽</div><div class="spv" id="sm">0회</div><div class="spl">식사</div></div>
-    <div class="sp"><div class="spi">⚡</div><div class="spv" id="sa">0건</div><div class="spl">활동</div></div>
+    <div class="sp"><div class="spi">?뙔</div><div class="spv" id="ss">-</div><div class="spl">?섎㈃</div></div>
+    <div class="sp"><div class="spi">?띂</div><div class="spv" id="sm">0??/div><div class="spl">?앹궗</div></div>
+    <div class="sp"><div class="spi">??/div><div class="spv" id="sa">0嫄?/div><div class="spl">?쒕룞</div></div>
   </div>
   <div style="display:flex;align-items:center;justify-content:space-between;padding:0 20px;margin-bottom:10px">
-    <div style="font-size:12px;font-weight:600;color:var(--tx2);letter-spacing:.5px;text-transform:uppercase">빠른 시작</div>
-    <button class="btn bo bsm" id="qe-open-btn" style="font-size:12px">편집</button>
+    <div style="font-size:12px;font-weight:600;color:var(--tx2);letter-spacing:.5px;text-transform:uppercase">鍮좊Ⅸ ?쒖옉</div>
+    <button class="btn bo bsm" id="qe-open-btn" style="font-size:12px">?몄쭛</button>
   </div>
   <div class="qgrid" id="qg"></div>
   <div style="padding:0 20px;margin-bottom:18px">
-    <button class="btn bo" id="manual-open-btn" style="font-size:13px;color:var(--tx2);width:100%">✏️ 공백 시간 채우기</button>
+    <button class="btn bo" id="manual-open-btn" style="font-size:13px;color:var(--tx2);width:100%">?륅툘 怨듬갚 ?쒓컙 梨꾩슦湲?/button>
   </div>
-  <div style="font-size:12px;font-weight:600;color:var(--tx2);letter-spacing:.5px;text-transform:uppercase;padding:0 20px;margin-bottom:10px" id="blt" style="display:none">오늘의 활동</div>
+  <div style="font-size:12px;font-weight:600;color:var(--tx2);letter-spacing:.5px;text-transform:uppercase;padding:0 20px;margin-bottom:10px" id="blt" style="display:none">?ㅻ뒛???쒕룞</div>
   <div id="bl"></div>
 </div>
 
 <!-- TIMELINE -->
 <div id="timeline-page" class="page">
-  <div class="ph"><div class="pt">타임라인</div></div>
+  <div class="ph"><div class="pt">??꾨씪??/div></div>
   <div class="dstrip" id="ds"></div>
   <div class="rw">
     <svg id="rsvg" viewBox="0 0 240 240">
       <circle cx="120" cy="120" r="90" fill="none" stroke="#1e1e1e" stroke-width="32"/>
       <g id="rticks"></g><g id="rarcs"></g>
-      <text x="120" y="114" text-anchor="middle" fill="#666" font-size="11" font-family="DM Sans">기록됨</text>
+      <text x="120" y="114" text-anchor="middle" fill="#666" font-size="11" font-family="DM Sans">湲곕줉??/text>
       <text id="rctr" x="120" y="134" text-anchor="middle" fill="#f0f0f0" font-size="20" font-weight="700" font-family="DM Sans">0h</text>
     </svg>
   </div>
   <div class="lgrid" id="tlleg"></div>
   <div class="div" style="margin:0 20px 14px"></div>
-  <div style="padding:0 20px;margin-bottom:8px;font-size:15px;font-weight:600">주간 캘린더</div>
+  <div style="padding:0 20px;margin-bottom:8px;font-size:15px;font-weight:600">二쇨컙 罹섎┛??/div>
   <div class="wcwrap" id="wc"></div>
   <div class="div" style="margin:0 20px 14px"></div>
   <div id="tlbl"></div>
@@ -238,27 +238,27 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 <!-- MEALS -->
 <div id="meals-page" class="page">
   <div class="ph" style="display:flex;align-items:flex-end;justify-content:space-between">
-    <div><div class="pt">식사</div><div class="ps" id="msub">오늘</div></div>
-    <button class="btn bo bsm" id="meal-add-btn">📷 추가</button>
+    <div><div class="pt">?앹궗</div><div class="ps" id="msub">?ㅻ뒛</div></div>
+    <button class="btn bo bsm" id="meal-add-btn">?벜 異붽?</button>
   </div>
   <div class="mgrid" id="mg"></div>
-  <div id="me" class="empty" style="display:none"><div class="ei">🍽</div><p>식사를 기록해보세요</p></div>
+  <div id="me" class="empty" style="display:none"><div class="ei">?띂</div><p>?앹궗瑜?湲곕줉?대낫?몄슂</p></div>
 </div>
 
 <!-- STATS -->
 <div id="stats-page" class="page">
-  <div class="ph"><div class="pt">통계</div><div class="ps">시간을 어떻게 쓰고 있나요</div></div>
+  <div class="ph"><div class="pt">?듦퀎</div><div class="ps">?쒓컙???대뼸寃??곌퀬 ?덈굹??/div></div>
   <div style="padding:0 20px 20px">
     <div class="ptabs" id="ptabs-wrap"></div>
     <!-- time donut -->
     <div style="background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:16px;margin-bottom:12px">
-      <div style="font-size:15px;font-weight:600;margin-bottom:4px">카테고리별 시간</div>
-      <div style="font-size:12px;color:var(--tx2);margin-bottom:14px" id="stlbl">총 0시간 기록</div>
+      <div style="font-size:15px;font-weight:600;margin-bottom:4px">移댄뀒怨좊━蹂??쒓컙</div>
+      <div style="font-size:12px;color:var(--tx2);margin-bottom:14px" id="stlbl">珥?0?쒓컙 湲곕줉</div>
       <div class="dwrap">
         <svg id="dsv" viewBox="0 0 180 180">
           <circle cx="90" cy="90" r="68" fill="none" stroke="#1e1e1e" stroke-width="26"/>
           <g id="darc"></g>
-          <text x="90" y="86" text-anchor="middle" fill="#666" font-size="11" font-family="DM Sans">총</text>
+          <text x="90" y="86" text-anchor="middle" fill="#666" font-size="11" font-family="DM Sans">珥?/text>
           <text id="dctr" x="90" y="106" text-anchor="middle" fill="#f0f0f0" font-size="18" font-weight="700" font-family="DM Sans">0h</text>
         </svg>
       </div>
@@ -266,35 +266,35 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
     </div>
     <!-- bar chart -->
     <div style="background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:16px;margin-bottom:12px">
-      <div style="font-size:15px;font-weight:600;margin-bottom:14px">활동별 시간 비교</div>
+      <div style="font-size:15px;font-weight:600;margin-bottom:14px">?쒕룞蹂??쒓컙 鍮꾧탳</div>
       <div class="barchart" id="bch"></div>
     </div>
     <!-- spending stats -->
     <div style="background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:16px;margin-bottom:12px" id="spend-card">
-      <div style="font-size:15px;font-weight:600;margin-bottom:4px">💳 소비 통계</div>
+      <div style="font-size:15px;font-weight:600;margin-bottom:4px">?뮩 ?뚮퉬 ?듦퀎</div>
       <div style="font-size:12px;color:var(--tx2);margin-bottom:14px" id="spend-sub"></div>
       <div id="spend-body"></div>
     </div>
     <!-- insights -->
-    <div style="font-size:15px;font-weight:600;margin-bottom:10px">인사이트</div>
+    <div style="font-size:15px;font-weight:600;margin-bottom:10px">?몄궗?댄듃</div>
     <div id="ins"></div>
   </div>
 </div>
 
 <!-- HISTORY -->
 <div id="history-page" class="page">
-  <div class="ph"><div class="pt">기록</div><div class="ps">날짜별 사진 일기</div></div>
+  <div class="ph"><div class="pt">湲곕줉</div><div class="ps">?좎쭨蹂??ъ쭊 ?쇨린</div></div>
   <div class="hlist" id="hl"></div>
-  <div id="he" class="empty" style="display:none"><div class="ei">📅</div><p>기록이 없어요</p></div>
+  <div id="he" class="empty" style="display:none"><div class="ei">?뱟</div><p>湲곕줉???놁뼱??/p></div>
 </div>
 
 <!-- TABBAR -->
 <div class="tab-bar">
-  <button class="tb on" id="tab-today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>오늘</button>
-  <button class="tb" id="tab-timeline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>타임라인</button>
-  <button class="tb" id="tab-meals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>식사</button>
-  <button class="tb" id="tab-stats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>통계</button>
-  <button class="tb" id="tab-history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>기록</button>
+  <button class="tb on" id="tab-today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>?ㅻ뒛</button>
+  <button class="tb" id="tab-timeline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>??꾨씪??/button>
+  <button class="tb" id="tab-meals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>?앹궗</button>
+  <button class="tb" id="tab-stats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>?듦퀎</button>
+  <button class="tb" id="tab-history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>湲곕줉</button>
 </div>
 </div><!-- #app -->
 
@@ -303,13 +303,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 <div class="ov" id="act-ov">
   <div class="sheet">
     <div class="sh"></div>
-    <div class="stitle" id="ast">활동 선택</div>
+    <div class="stitle" id="ast">?쒕룞 ?좏깮</div>
     <div class="cgrid" id="acg"></div>
     <div class="fg" id="acust" style="display:none">
-      <label class="fl">활동 이름</label>
-      <input class="fi" id="acin" placeholder="예: 독서, 게임..." maxlength="20" type="text">
+      <label class="fl">?쒕룞 ?대쫫</label>
+      <input class="fi" id="acin" placeholder="?? ?낆꽌, 寃뚯엫..." maxlength="20" type="text">
     </div>
-    <button class="btn bp" id="acbtn">시작하기</button>
+    <button class="btn bp" id="acbtn">?쒖옉?섍린</button>
   </div>
 </div>
 
@@ -317,16 +317,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 <div class="ov" id="edit-ov">
   <div class="sheet">
     <div class="sh"></div>
-    <div class="stitle">활동 수정</div>
+    <div class="stitle">?쒕룞 ?섏젙</div>
     <div class="cgrid" id="ecg"></div>
-    <div class="fg"><label class="fl">활동 이름 (선택)</label><input class="fi" id="ecl" placeholder="직접 입력" type="text"></div>
+    <div class="fg"><label class="fl">?쒕룞 ?대쫫 (?좏깮)</label><input class="fi" id="ecl" placeholder="吏곸젒 ?낅젰" type="text"></div>
     <div class="tr">
-      <div class="fg"><label class="fl">시작</label><input class="fi" type="time" id="est"></div>
-      <div class="fg"><label class="fl">종료</label><input class="fi" type="time" id="een"></div>
+      <div class="fg"><label class="fl">?쒖옉</label><input class="fi" type="time" id="est"></div>
+      <div class="fg"><label class="fl">醫낅즺</label><input class="fi" type="time" id="een"></div>
     </div>
-    <div class="fg"><label class="fl">메모</label><input class="fi" id="enote" placeholder="내용" type="text"></div>
-    <button class="btn bp" style="margin-bottom:10px" id="edit-save-btn">저장</button>
-    <button class="btn bd2" id="edit-del-btn">삭제</button>
+    <div class="fg"><label class="fl">硫붾え</label><input class="fi" id="enote" placeholder="?댁슜" type="text"></div>
+    <button class="btn bp" style="margin-bottom:10px" id="edit-save-btn">???/button>
+    <button class="btn bd2" id="edit-del-btn">??젣</button>
   </div>
 </div>
 
@@ -334,59 +334,59 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 <div class="ov" id="meal-ov">
   <div class="sheet">
     <div class="sh"></div>
-    <div class="stitle">식사 기록</div>
+    <div class="stitle">?앹궗 湲곕줉</div>
     <div class="cama" id="ca">
-      <div class="camph" id="caph"><div class="cpi">📷</div><p>사진을 추가해보세요</p></div>
+      <div class="camph" id="caph"><div class="cpi">?벜</div><p>?ъ쭊??異붽??대낫?몄슂</p></div>
       <img id="mprev" style="display:none;width:100%;height:100%;object-fit:cover">
     </div>
     <div class="psrow">
-      <button class="btn bo" style="flex:1" id="meal-cam-btn">📷 카메라</button>
-      <button class="btn bo" style="flex:1" id="meal-gal-btn">🖼 갤러리</button>
+      <button class="btn bo" style="flex:1" id="meal-cam-btn">?벜 移대찓??/button>
+      <button class="btn bo" style="flex:1" id="meal-gal-btn">?뼹 媛ㅻ윭由?/button>
     </div>
     <input type="file" id="fc" accept="image/*" capture="environment" style="display:none">
     <input type="file" id="fg2" accept="image/*" style="display:none">
     <!-- time -->
     <div class="fg">
-      <label class="fl">시간</label>
+      <label class="fl">?쒓컙</label>
       <input class="fi" type="time" id="meal-time-input">
     </div>
-    <div class="fg"><label class="fl">메모 (선택)</label><input class="fi" id="mnote" placeholder="무엇을 먹었나요?" type="text"></div>
+    <div class="fg"><label class="fl">硫붾え (?좏깮)</label><input class="fi" id="mnote" placeholder="臾댁뾿??癒뱀뿀?섏슂?" type="text"></div>
     <!-- hunger before -->
     <div class="fg">
-      <label class="fl">먹기 전 배고픔 <span id="hb-val" style="color:var(--tx);font-weight:700">5</span></label>
+      <label class="fl">癒밴린 ??諛곌퀬??<span id="hb-val" style="color:var(--tx);font-weight:700">5</span></label>
       <div class="hslider">
         <div class="heart-slider">
           <input type="range" min="0" max="10" step="0.5" value="5" id="hunger-before">
           <div class="heart-row" id="hb-hearts" aria-hidden="true"></div>
         </div>
         <div class="hslider-meta">
-          <span>배고픔</span>
+          <span>諛곌퀬??/span>
           <div class="hval" id="hb-num">5</div>
-          <span>배부름</span>
+          <span>諛곕?由?/span>
         </div>
       </div>
     </div>
     <!-- hunger after -->
     <div class="fg">
-      <label class="fl">먹은 후 배고픔 <span id="ha-val" style="color:var(--tx);font-weight:700">2</span></label>
+      <label class="fl">癒뱀? ??諛곌퀬??<span id="ha-val" style="color:var(--tx);font-weight:700">2</span></label>
       <div class="hslider">
         <div class="heart-slider">
           <input type="range" min="0" max="10" step="0.5" value="2" id="hunger-after">
           <div class="heart-row" id="ha-hearts" aria-hidden="true"></div>
         </div>
         <div class="hslider-meta">
-          <span>배고픔</span>
+          <span>諛곌퀬??/span>
           <div class="hval" id="ha-num">2</div>
-          <span>배부름</span>
+          <span>諛곕?由?/span>
         </div>
       </div>
     </div>
     <!-- cost -->
     <div class="fg">
-      <label class="fl">소비 금액 (선택)</label>
-      <input class="fi" id="meal-cost" placeholder="예: 12000" type="number" inputmode="numeric" min="0">
+      <label class="fl">?뚮퉬 湲덉븸 (?좏깮)</label>
+      <input class="fi" id="meal-cost" placeholder="?? 12000" type="number" inputmode="numeric" min="0">
     </div>
-    <button class="btn bp" id="meal-save-btn">저장</button>
+    <button class="btn bp" id="meal-save-btn">???/button>
   </div>
 </div>
 
@@ -394,16 +394,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 <div class="ov" id="man-ov">
   <div class="sheet">
     <div class="sh"></div>
-    <div class="stitle">공백 시간 채우기</div>
+    <div class="stitle">怨듬갚 ?쒓컙 梨꾩슦湲?/div>
     <div class="cgrid" id="mcg"></div>
-    <div class="fg" id="mcust" style="display:none"><label class="fl">활동 이름</label><input class="fi" id="mcin" placeholder="예: 독서..." type="text"></div>
+    <div class="fg" id="mcust" style="display:none"><label class="fl">?쒕룞 ?대쫫</label><input class="fi" id="mcin" placeholder="?? ?낆꽌..." type="text"></div>
     <div class="tr">
-      <div class="fg"><label class="fl">시작</label><input class="fi" type="time" id="mst"></div>
-      <div class="fg"><label class="fl">종료</label><input class="fi" type="time" id="men"></div>
+      <div class="fg"><label class="fl">?쒖옉</label><input class="fi" type="time" id="mst"></div>
+      <div class="fg"><label class="fl">醫낅즺</label><input class="fi" type="time" id="men"></div>
     </div>
-    <div class="fg"><label class="fl">소비 금액 (선택)</label><input class="fi" id="mcost" placeholder="예: 5000" type="number" inputmode="numeric" min="0"></div>
-    <div class="fg"><label class="fl">메모 (선택)</label><input class="fi" id="mnote2" placeholder="내용" type="text"></div>
-    <button class="btn bp" id="man-save-btn">저장</button>
+    <div class="fg"><label class="fl">?뚮퉬 湲덉븸 (?좏깮)</label><input class="fi" id="mcost" placeholder="?? 5000" type="number" inputmode="numeric" min="0"></div>
+    <div class="fg"><label class="fl">硫붾え (?좏깮)</label><input class="fi" id="mnote2" placeholder="?댁슜" type="text"></div>
+    <button class="btn bp" id="man-save-btn">???/button>
   </div>
 </div>
 
@@ -411,9 +411,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 <div class="ov" id="qe-ov">
   <div class="sheet">
     <div class="sh"></div>
-    <div class="stitle">빠른 시작 편집</div>
+    <div class="stitle">鍮좊Ⅸ ?쒖옉 ?몄쭛</div>
     <div id="qelist"></div>
-    <button class="btn bo" id="qadd-btn" style="margin-top:4px">+ 추가</button>
+    <button class="btn bo" id="qadd-btn" style="margin-top:4px">+ 異붽?</button>
   </div>
 </div>
 
@@ -421,9 +421,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 <div class="ov" id="col-ov">
   <div class="sheet">
     <div class="sh"></div>
-    <div class="stitle" id="coltitle">색상 선택</div>
+    <div class="stitle" id="coltitle">?됱긽 ?좏깮</div>
     <div class="cswgrid" id="cswg"></div>
-    <button class="btn bp" id="col-save-btn">저장</button>
+    <button class="btn bp" id="col-save-btn">???/button>
   </div>
 </div>
 
@@ -431,41 +431,41 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 <div class="ov" id="diary-ov">
   <div class="sheet">
     <div class="sh"></div>
-    <div class="stitle">활동 메모 & 사진</div>
+    <div class="stitle">?쒕룞 硫붾え & ?ъ쭊</div>
     <div style="font-size:14px;color:var(--tx2);margin-bottom:14px" id="dinfo"></div>
-    <div class="fg"><label class="fl">메모</label><textarea class="fi" id="dnote" rows="4" placeholder="이 시간에 대해 기록해보세요..." style="resize:none"></textarea></div>
+    <div class="fg"><label class="fl">硫붾え</label><textarea class="fi" id="dnote" rows="4" placeholder="???쒓컙?????湲곕줉?대낫?몄슂..." style="resize:none"></textarea></div>
     <div style="margin-bottom:14px">
-      <label class="fl">사진</label>
+      <label class="fl">?ъ쭊</label>
       <div id="dprev" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"></div>
       <div class="psrow">
-        <button class="btn bo" style="flex:1" id="diary-cam-btn">📷 카메라</button>
-        <button class="btn bo" style="flex:1" id="diary-gal-btn">🖼 갤러리</button>
+        <button class="btn bo" style="flex:1" id="diary-cam-btn">?벜 移대찓??/button>
+        <button class="btn bo" style="flex:1" id="diary-gal-btn">?뼹 媛ㅻ윭由?/button>
       </div>
       <input type="file" id="dfc" accept="image/*" capture="environment" style="display:none">
       <input type="file" id="dfg" accept="image/*" style="display:none" multiple>
     </div>
-    <button class="btn bp" id="diary-save-btn">저장</button>
+    <button class="btn bp" id="diary-save-btn">???/button>
   </div>
 </div>
 
 <!-- Photo editor -->
 <div class="edov" id="edov">
   <div class="edtb">
-    <button id="ed-cancel-btn" style="background:none;border:none;color:#888;font-size:15px;cursor:pointer;font-family:'DM Sans',sans-serif">✕ 취소</button>
+    <button id="ed-cancel-btn" style="background:none;border:none;color:#888;font-size:15px;cursor:pointer;font-family:'DM Sans',sans-serif">??痍⑥냼</button>
     <div style="flex:1"></div>
-    <button id="ed-save-btn" style="background:var(--tx);color:var(--bg);border:none;border-radius:8px;padding:7px 16px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">저장</button>
+    <button id="ed-save-btn" style="background:var(--tx);color:var(--bg);border:none;border-radius:8px;padding:7px 16px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">???/button>
   </div>
   <div class="edcw"><canvas id="ec" style="max-width:100%;max-height:100%;display:block;touch-action:none"></canvas></div>
   <div class="edbot">
     <div class="edtools">
-      <button class="etbtn on" id="tool-text-btn">✏️ 텍스트</button>
-      <button class="etbtn" id="tool-sticker-btn">😊 스티커</button>
-      <button class="etbtn" id="tool-draw-btn">🖊 그리기</button>
-      <button class="etbtn" id="tool-undo-btn">↩ 실행취소</button>
+      <button class="etbtn on" id="tool-text-btn">?륅툘 ?띿뒪??/button>
+      <button class="etbtn" id="tool-sticker-btn">?삃 ?ㅽ떚而?/button>
+      <button class="etbtn" id="tool-draw-btn">?뻿 洹몃━湲?/button>
+      <button class="etbtn" id="tool-undo-btn">???ㅽ뻾痍⑥냼</button>
     </div>
     <div id="tp-text">
       <div class="crow" id="tcr"></div>
-      <div class="tinrow"><input id="tin" placeholder="텍스트 입력..." type="text"><button id="txt-add-btn" style="background:var(--tx);color:var(--bg);border:none;border-radius:8px;padding:9px 14px;font-size:14px;font-weight:600;cursor:pointer">추가</button></div>
+      <div class="tinrow"><input id="tin" placeholder="?띿뒪???낅젰..." type="text"><button id="txt-add-btn" style="background:var(--tx);color:var(--bg);border:none;border-radius:8px;padding:9px 14px;font-size:14px;font-weight:600;cursor:pointer">異붽?</button></div>
     </div>
     <div id="tp-sticker" style="display:none"><div class="strow" id="str"></div></div>
     <div id="tp-draw" style="display:none"><div class="crow" id="dcr"></div></div>
@@ -475,11 +475,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 <div class="toast" id="toast"></div>
 
 <script>
-// ═══ DATA ═══
-const DCOLS={sleep:'#7B9CFF',study:'#5EC4A8',exercise:'#FF7B5E',meal:'#FFB84D',rest:'#B8A9F5',work:'#4DA8D4',social:'#F57B9C',custom:'#999999'};
-const CMETA={sleep:{l:'수면',i:'🌙'},study:{l:'공부',i:'📖'},exercise:{l:'운동',i:'🏃'},meal:{l:'식사',i:'🍽'},rest:{l:'휴식',i:'🌿'},work:{l:'업무',i:'💻'},social:{l:'약속',i:'👥'},custom:{l:'기타',i:'✨'}};
+// ?먥븧??DATA ?먥븧??const DCOLS={sleep:'#7B9CFF',study:'#5EC4A8',exercise:'#FF7B5E',meal:'#FFB84D',rest:'#B8A9F5',work:'#4DA8D4',social:'#F57B9C',custom:'#999999'};
+const CMETA={sleep:{l:'?섎㈃',i:'?뙔'},study:{l:'怨듬?',i:'?뱰'},exercise:{l:'?대룞',i:'?룂'},meal:{l:'?앹궗',i:'?띂'},rest:{l:'?댁떇',i:'?뙼'},work:{l:'?낅Т',i:'?뮲'},social:{l:'?쎌냽',i:'?뫁'},custom:{l:'湲고?',i:'??}};
 const PAL=['#FF6B6B','#FF9F43','#FECA57','#48DBFB','#1DD1A1','#54A0FF','#5F27CD','#FF9FF3','#7B9CFF','#5EC4A8','#FF7B5E','#FFB84D','#B8A9F5','#4DA8D4','#F57B9C','#AAAAAA','#FFFFFF','#000000'];
-const STKS=['😊','😂','🔥','💪','😴','🍕','🎵','❤️','⭐','🌟','👏','🤔','😎','🥳','📚','🏋️','☕','🌙','☀️','🎯'];
+const STKS=['?삃','?쁻','?뵦','?뮞','?샂','?뜒','?렦','?ㅿ툘','狩?,'?뙚','?몡','?쨺','?삇','?Ⅳ','?뱴','?룍截?,'??,'?뙔','?截?,'?렞'];
 const sv=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 const ld=(k,d)=>{try{const x=localStorage.getItem(k);return x?JSON.parse(x):d}catch{return d}};
 const catCol=c=>(ld('catCols',{}))[c]||DCOLS[c]||'#999';
@@ -497,13 +496,12 @@ const f2=n=>String(n).padStart(2,'0');
 const ft=d=>`${f2(d.getHours())}:${f2(d.getMinutes())}`;
 const dur=b=>((b.endTime?new Date(b.endTime):new Date())-new Date(b.startTime))/1000;
 const dTxt=s=>{const h=Math.floor(s/3600),m=Math.floor((s%3600)/60);if(h>0&&m>0)return`${h}h ${m}m`;if(h>0)return`${h}h`;if(m>0)return`${m}m`;return`${Math.max(0,Math.floor(s))}s`};
-const won=n=>n>=10000?`${(n/10000).toFixed(n%10000?1:0)}만원`:`${n.toLocaleString()}원`;
+const won=n=>n>=10000?`${(n/10000).toFixed(n%10000?1:0)}留뚯썝`:`${n.toLocaleString()}??;
 const showToast=msg=>{const t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2200)};
 const openOv=id=>document.getElementById(id).classList.add('open');
 const closeOv=id=>document.getElementById(id).classList.remove('open');
 
-// ═══ STATE ═══
-let sCat='study',mCat='rest',eCat='rest';
+// ?먥븧??STATE ?먥븧??let sCat='study',mCat='rest',eCat='rest';
 let etimer=null,tlDate=dk(),sPeriod='today';
 let ebId=null,ebDk=null;
 let mPhData=null,colCat=null,selColVal=null;
@@ -513,8 +511,7 @@ let edCtx=null;
 let actSheetMode='start'; // 'start' | 'edit-quick' | 'add-quick'
 let editingQBIdx=-1;
 
-// ═══ NAV ═══
-const PAGES=['today','timeline','meals','stats','history'];
+// ?먥븧??NAV ?먥븧??const PAGES=['today','timeline','meals','stats','history'];
 function go(name){
   PAGES.forEach(p=>{
     document.getElementById(p+'-page').classList.toggle('active',p===name);
@@ -528,21 +525,19 @@ function go(name){
 }
 PAGES.forEach(p=>document.getElementById('tab-'+p).addEventListener('click',()=>go(p)));
 
-// ═══ OVERLAY CLOSE on backdrop ═══
-document.querySelectorAll('.ov').forEach(ov=>{
+// ?먥븧??OVERLAY CLOSE on backdrop ?먥븧??document.querySelectorAll('.ov').forEach(ov=>{
   ov.addEventListener('click',e=>{if(e.target===ov)ov.classList.remove('open')});
 });
 
-// ═══ TODAY ═══
-function rToday(){
+// ?먥븧??TODAY ?먥븧??function rToday(){
   const rec=getRec(),act=getAct(),now=new Date();
-  const dn=['일','월','화','수','목','금','토'];
-  document.getElementById('td').textContent=`${now.getMonth()+1}월 ${now.getDate()}일 ${dn[now.getDay()]}요일`;
+  const dn=['??,'??,'??,'??,'紐?,'湲?,'??];
+  document.getElementById('td').textContent=`${now.getMonth()+1}??${now.getDate()}??${dn[now.getDay()]}?붿씪`;
   const h=now.getHours();
-  document.getElementById('tg').textContent=h<12?'좋은 아침이에요 ☀️':h<18?'좋은 오후예요 🌤':'좋은 저녁이에요 🌙';
+  document.getElementById('tg').textContent=h<12?'醫뗭? ?꾩묠?댁뿉???截?:h<18?'醫뗭? ?ㅽ썑?덉슂 ?뙟':'醫뗭? ??곸씠?먯슂 ?뙔';
   const wr=document.getElementById('wr');
-  if(rec.wake){const t=new Date(rec.wake);wr.innerHTML=`<div style="font-size:13px;color:var(--tx2)">기상 시간</div><div class="wval">${f2(t.getHours())}:${f2(t.getMinutes())}</div>`;}
-  else wr.innerHTML=`<div style="font-size:13px;color:var(--tx2)">아직 기상 전이에요</div><button class="btn bo bsm" id="wake-btn">⏰ 기상 기록</button>`;
+  if(rec.wake){const t=new Date(rec.wake);wr.innerHTML=`<div style="font-size:13px;color:var(--tx2)">湲곗긽 ?쒓컙</div><div class="wval">${f2(t.getHours())}:${f2(t.getMinutes())}</div>`;}
+  else wr.innerHTML=`<div style="font-size:13px;color:var(--tx2)">?꾩쭅 湲곗긽 ?꾩씠?먯슂</div><button class="btn bo bsm" id="wake-btn">??湲곗긽 湲곕줉</button>`;
   const wakeBtn=document.getElementById('wake-btn');
   if(wakeBtn)wakeBtn.addEventListener('click',recWake);
   const abc=document.getElementById('abc');
@@ -555,8 +550,8 @@ function rToday(){
   const slp=rec.blocks.filter(b=>b.category==='sleep').reduce((s,b)=>s+dur(b),0);
   const ml=rec.blocks.filter(b=>b.category==='meal');
   document.getElementById('ss').textContent=slp>0?dTxt(slp):'-';
-  document.getElementById('sm').textContent=ml.length+'회';
-  document.getElementById('sa').textContent=rec.blocks.length+'건';
+  document.getElementById('sm').textContent=ml.length+'??;
+  document.getElementById('sa').textContent=rec.blocks.length+'嫄?;
   rQGrid();
   const sorted=[...rec.blocks].sort((a,b)=>new Date(b.startTime)-new Date(a.startTime));
   document.getElementById('blt').style.display=sorted.length?'block':'none';
@@ -570,11 +565,11 @@ function rToday(){
 
 function bRowHTML(b,d){
   const c=cat(b.category);const s=new Date(b.startTime),e=b.endTime?new Date(b.endTime):null;
-  const ts=`${f2(s.getHours())}:${f2(s.getMinutes())}${e?' – '+f2(e.getHours())+':'+f2(e.getMinutes()):''}`;
-  const badge=!b.endTime?`<span class="rbadge" style="background:${c.color}22;color:${c.color}">진행중</span>`:'';
+  const ts=`${f2(s.getHours())}:${f2(s.getMinutes())}${e?' ??'+f2(e.getHours())+':'+f2(e.getMinutes()):''}`;
+  const badge=!b.endTime?`<span class="rbadge" style="background:${c.color}22;color:${c.color}">吏꾪뻾以?/span>`:'';
   return `<div class="brow" data-bid="${b.id}" data-dk="${d}">
     <div class="bdot" style="background:${c.color}"></div>
-    <div class="bi"><div class="bn">${c.i} ${b.customLabel||c.l}${badge}</div><div class="bt">${ts}${b.note?' · '+b.note:''}</div></div>
+    <div class="bi"><div class="bn">${c.i} ${b.customLabel||c.l}${badge}</div><div class="bt">${ts}${b.note?' 쨌 '+b.note:''}</div></div>
     <div class="bdur">${dTxt(dur(b))}</div>
   </div>`;
 }
@@ -587,7 +582,7 @@ function rQGrid(){
       <div class="qi" style="background:${c.color}22">${c.i}</div>
       <div class="ql">${q.l||c.l}</div>
     </div>`;
-  }).join('')+`<div class="qbtn" id="qbtn-more"><div class="qi" style="background:#fff1">＋</div><div class="ql">직접 선택</div></div>`;
+  }).join('')+`<div class="qbtn" id="qbtn-more"><div class="qi" style="background:#fff1">竊?/div><div class="ql">吏곸젒 ?좏깮</div></div>`;
   g.querySelectorAll('.qbtn[data-cat]').forEach(btn=>{
     btn.addEventListener('click',()=>startAct(btn.dataset.cat,btn.dataset.label));
   });
@@ -598,24 +593,23 @@ function updEl(st){
   const s=(Date.now()-new Date(st))/1000,h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=Math.floor(s%60);
   const el=document.getElementById('abe');if(el)el.textContent=h>0?`${h}:${f2(m)}:${f2(sec)}`:`${f2(m)}:${f2(sec)}`;
 }
-function recWake(){const r=getRec();r.wake=new Date().toISOString();saveRec(r);rToday();showToast('기상 기록 완료 ☀️')}
+function recWake(){const r=getRec();r.wake=new Date().toISOString();saveRec(r);rToday();showToast('湲곗긽 湲곕줉 ?꾨즺 ?截?)}
 function startAct(c,lbl=''){
   const act=getAct();if(act)stopAct(false);
   const b={id:Date.now().toString(),category:c,customLabel:lbl,startTime:new Date().toISOString(),endTime:null,note:'',photos:[],cost:0};
   saveAct(b);const r=getRec();r.blocks.push(b);saveRec(r);
-  closeOv('act-ov');rToday();showToast(`${cat(c).l} 시작 ✓`);
+  closeOv('act-ov');rToday();showToast(`${cat(c).l} ?쒖옉 ??);
 }
 function stopAct(n=true){
   const act=getAct();if(!act)return;act.endTime=new Date().toISOString();saveAct(null);
   const r=getRec();const i=r.blocks.findIndex(b=>b.id===act.id);if(i>-1)r.blocks[i]=act;saveRec(r);
-  rToday();if(n)showToast('활동 종료 ✓');
+  rToday();if(n)showToast('?쒕룞 醫낅즺 ??);
 }
 document.getElementById('stop-btn').addEventListener('click',()=>stopAct());
 document.getElementById('qe-open-btn').addEventListener('click',openQE);
 document.getElementById('manual-open-btn').addEventListener('click',openManual);
 
-// ═══ EDIT BLOCK ═══
-function openEdit(bid,d){
+// ?먥븧??EDIT BLOCK ?먥븧??function openEdit(bid,d){
   ebId=bid;ebDk=d;const r=getRec(d);const b=r.blocks.find(x=>x.id===bid);if(!b)return;
   eCat=b.category;rCatGrid('ecg',eCat);
   document.getElementById('ecl').value=b.customLabel||'';
@@ -632,20 +626,19 @@ document.getElementById('edit-save-btn').addEventListener('click',()=>{
   if(ss){const[sh,sm]=ss.split(':').map(Number);const base=new Date(ebDk+'T00:00:00');base.setHours(sh,sm,0,0);b.startTime=base.toISOString();}
   if(es){const[eh,em]=es.split(':').map(Number);const base=new Date(ebDk+'T00:00:00');base.setHours(eh,em,0,0);b.endTime=base.toISOString();}
   const act=getAct();if(act&&act.id===ebId)saveAct(b);
-  saveRec(r);closeOv('edit-ov');rToday();rHist();showToast('수정 완료 ✓');
+  saveRec(r);closeOv('edit-ov');rToday();rHist();showToast('?섏젙 ?꾨즺 ??);
 });
 document.getElementById('edit-del-btn').addEventListener('click',()=>{
-  if(!confirm('삭제할까요?'))return;
+  if(!confirm('??젣?좉퉴??'))return;
   const r=getRec(ebDk);r.blocks=r.blocks.filter(b=>b.id!==ebId);saveRec(r);
   const act=getAct();if(act&&act.id===ebId)saveAct(null);
-  closeOv('edit-ov');rToday();rHist();showToast('삭제됨');
+  closeOv('edit-ov');rToday();rHist();showToast('??젣??);
 });
 
-// ═══ ACT SHEET ═══
-function openActSh(){
+// ?먥븧??ACT SHEET ?먥븧??function openActSh(){
   actSheetMode='start';sCat='study';
-  document.getElementById('ast').textContent='활동 선택';
-  document.getElementById('acbtn').textContent='시작하기';
+  document.getElementById('ast').textContent='?쒕룞 ?좏깮';
+  document.getElementById('acbtn').textContent='?쒖옉?섍린';
   document.getElementById('acust').style.display='none';
   document.getElementById('acin').value='';
   rCatGrid('acg',sCat);openOv('act-ov');
@@ -653,19 +646,18 @@ function openActSh(){
 document.getElementById('acbtn').addEventListener('click',()=>{
   if(actSheetMode==='start'){
     const l=sCat==='custom'?document.getElementById('acin').value.trim():'';
-    if(sCat==='custom'&&!l){showToast('활동 이름을 입력해주세요');return;}
+    if(sCat==='custom'&&!l){showToast('?쒕룞 ?대쫫???낅젰?댁＜?몄슂');return;}
     startAct(sCat,l);
   } else if(actSheetMode==='edit-quick'){
     const qbs=getQB();const l=sCat==='custom'?document.getElementById('acin').value.trim():'';
-    qbs[editingQBIdx]={c:sCat,l};saveQB(qbs);closeOv('act-ov');rQEList();rQGrid();showToast('수정됨');
+    qbs[editingQBIdx]={c:sCat,l};saveQB(qbs);closeOv('act-ov');rQEList();rQGrid();showToast('?섏젙??);
   } else if(actSheetMode==='add-quick'){
     const qbs=getQB();const l=sCat==='custom'?document.getElementById('acin').value.trim():'';
-    qbs.push({c:sCat,l});saveQB(qbs);closeOv('act-ov');rQEList();rQGrid();showToast('추가됨');
+    qbs.push({c:sCat,l});saveQB(qbs);closeOv('act-ov');rQEList();rQGrid();showToast('異붽???);
   }
 });
 
-// ═══ QUICK EDIT ═══
-function openQE(){rQEList();openOv('qe-ov')}
+// ?먥븧??QUICK EDIT ?먥븧??function openQE(){rQEList();openOv('qe-ov')}
 function rQEList(){
   const qbs=getQB(),list=document.getElementById('qelist');
   list.innerHTML='';
@@ -673,33 +665,32 @@ function rQEList(){
     const c=cat(q.c);
     const row=document.createElement('div');row.className='qerow';
     row.innerHTML=`<div class="qerow-icon">${c.i}</div><div class="qerow-label">${q.l||c.l}</div>`;
-    const editBtn=document.createElement('button');editBtn.className='qerow-edit';editBtn.textContent='수정';
+    const editBtn=document.createElement('button');editBtn.className='qerow-edit';editBtn.textContent='?섏젙';
     editBtn.addEventListener('click',()=>{
       actSheetMode='edit-quick';editingQBIdx=i;sCat=q.c;
-      document.getElementById('ast').textContent='빠른 시작 수정';
-      document.getElementById('acbtn').textContent='저장';
+      document.getElementById('ast').textContent='鍮좊Ⅸ ?쒖옉 ?섏젙';
+      document.getElementById('acbtn').textContent='???;
       document.getElementById('acust').style.display=q.l?'block':'none';
       document.getElementById('acin').value=q.l||'';
       rCatGrid('acg',sCat);openOv('act-ov');
     });
-    const delBtn=document.createElement('button');delBtn.className='qerow-del';delBtn.textContent='삭제';
+    const delBtn=document.createElement('button');delBtn.className='qerow-del';delBtn.textContent='??젣';
     delBtn.addEventListener('click',()=>{
-      const qbs2=getQB();qbs2.splice(i,1);saveQB(qbs2);rQEList();rQGrid();showToast('삭제됨');
+      const qbs2=getQB();qbs2.splice(i,1);saveQB(qbs2);rQEList();rQGrid();showToast('??젣??);
     });
     row.appendChild(editBtn);row.appendChild(delBtn);list.appendChild(row);
   });
 }
 document.getElementById('qadd-btn').addEventListener('click',()=>{
   actSheetMode='add-quick';sCat='study';
-  document.getElementById('ast').textContent='빠른 시작 추가';
-  document.getElementById('acbtn').textContent='추가';
+  document.getElementById('ast').textContent='鍮좊Ⅸ ?쒖옉 異붽?';
+  document.getElementById('acbtn').textContent='異붽?';
   document.getElementById('acust').style.display='none';
   document.getElementById('acin').value='';
   rCatGrid('acg',sCat);openOv('act-ov');
 });
 
-// ═══ MANUAL ═══
-function openManual(){
+// ?먥븧??MANUAL ?먥븧??function openManual(){
   mCat='rest';rCatGrid('mcg',mCat);
   document.getElementById('mcust').style.display='none';
   const now=new Date(),ago=new Date(now-3600000);
@@ -710,21 +701,20 @@ function openManual(){
 }
 document.getElementById('man-save-btn').addEventListener('click',()=>{
   const ss=document.getElementById('mst').value,es=document.getElementById('men').value;
-  if(!ss||!es){showToast('시간을 입력해주세요');return;}
+  if(!ss||!es){showToast('?쒓컙???낅젰?댁＜?몄슂');return;}
   const[sh,sm]=ss.split(':').map(Number),[eh,em]=es.split(':').map(Number);
   const today=new Date();
   const s=new Date(today.getFullYear(),today.getMonth(),today.getDate(),sh,sm);
   const e=new Date(today.getFullYear(),today.getMonth(),today.getDate(),eh,em);
-  if(e<=s){showToast('종료가 시작보다 늦어야 해요');return;}
+  if(e<=s){showToast('醫낅즺媛 ?쒖옉蹂대떎 ??뼱???댁슂');return;}
   const l=mCat==='custom'?document.getElementById('mcin').value.trim():'';
   const costVal=parseInt(document.getElementById('mcost').value)||0;
   const b={id:Date.now().toString(),category:mCat,customLabel:l,startTime:s.toISOString(),endTime:e.toISOString(),note:document.getElementById('mnote2').value.trim(),photos:[],cost:costVal};
   const r=getRec();r.blocks.push(b);r.blocks.sort((a,b)=>new Date(a.startTime)-new Date(b.startTime));saveRec(r);
-  closeOv('man-ov');rToday();showToast('기록 추가 ✓');
+  closeOv('man-ov');rToday();showToast('湲곕줉 異붽? ??);
 });
 
-// ═══ MEAL ═══
-function openMeal(){
+// ?먥븧??MEAL ?먥븧??function openMeal(){
   mPhData=null;
   document.getElementById('mprev').style.display='none';
   document.getElementById('caph').style.cssText='display:flex;flex-direction:column;align-items:center';
@@ -769,14 +759,13 @@ document.addEventListener('DOMContentLoaded', function(){
   if(timeStr){const[hh,mm]=timeStr.split(':').map(Number);mealTime=new Date();mealTime.setHours(hh,mm,0,0);}
   const b={id:Date.now().toString(),category:'meal',customLabel:'',startTime:mealTime.toISOString(),endTime:mealTime.toISOString(),note,photos:mPhData?[mPhData]:[],cost:costVal,hungerBefore:hb,hungerAfter:ha};
   const r=getRec();r.blocks.push(b);saveRec(r);
-  closeOv('meal-ov');mPhData=null;rToday();rMeals();showToast('식사 기록 완료 🍽');
+  closeOv('meal-ov');mPhData=null;rToday();rMeals();showToast('?앹궗 湲곕줉 ?꾨즺 ?띂');
 });
 
-// ═══ MEALS PAGE ═══
-function rMeals(){
+// ?먥븧??MEALS PAGE ?먥븧??function rMeals(){
   const rec=getRec();
   const meals=rec.blocks.filter(b=>b.category==='meal').sort((a,b)=>new Date(a.startTime)-new Date(b.startTime));
-  document.getElementById('msub').textContent=`오늘 ${meals.length}건`;
+  document.getElementById('msub').textContent=`?ㅻ뒛 ${meals.length}嫄?;
   const mg=document.getElementById('mg'),me=document.getElementById('me');
   if(!meals.length){mg.style.display='none';me.style.display='block';return;}
   mg.style.display='grid';me.style.display='none';
@@ -785,9 +774,9 @@ function rMeals(){
     const t=new Date(m.startTime);const ph=m.photos&&m.photos[0];
     const card=document.createElement('div');card.className='mc';
     // hunger display
-    const hLine=m.hungerBefore!==undefined?`<div style="font-size:11px;color:var(--tx2);margin-top:3px">배고픔 ${m.hungerBefore}→${m.hungerAfter}</div>`:'';
-    const costLine=m.cost?`<div style="font-size:11px;color:var(--tx2);margin-top:2px">💳 ${won(m.cost)}</div>`:'';
-    card.innerHTML=ph?`<img class="mp" src="${ph}" loading="lazy">`:`<div class="mph">🍽</div>`;
+    const hLine=m.hungerBefore!==undefined?`<div style="font-size:11px;color:var(--tx2);margin-top:3px">諛곌퀬??${m.hungerBefore}??{m.hungerAfter}</div>`:'';
+    const costLine=m.cost?`<div style="font-size:11px;color:var(--tx2);margin-top:2px">?뮩 ${won(m.cost)}</div>`:'';
+    card.innerHTML=ph?`<img class="mp" src="${ph}" loading="lazy">`:`<div class="mph">?띂</div>`;
     const meta=document.createElement('div');meta.className='mm';
     meta.innerHTML=`<div style="font-size:13px;font-weight:600;font-family:'DM Mono',monospace">${f2(t.getHours())}:${f2(t.getMinutes())}</div>${m.note?`<div style="font-size:12px;color:var(--tx2);margin-top:2px">${m.note}</div>`:''}${hLine}${costLine}`;
     card.appendChild(meta);
@@ -797,12 +786,11 @@ function rMeals(){
   });
 }
 
-// ═══ TIMELINE ═══
-function rTL(){rDStrip();rRing();rWeekCal()}
+// ?먥븧??TIMELINE ?먥븧??function rTL(){rDStrip();rRing();rWeekCal()}
 function rDStrip(){
   const strip=document.getElementById('ds');const days=[];
   for(let i=13;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);days.push(d);}
-  const dn=['일','월','화','수','목','금','토'];
+  const dn=['??,'??,'??,'??,'紐?,'湲?,'??];
   strip.innerHTML='';
   days.forEach(d=>{
     const k=dk(d);const chip=document.createElement('div');chip.className='dchip'+(k===tlDate?' on':'');
@@ -832,22 +820,22 @@ function rRing(){
   const leg=document.getElementById('tlleg');leg.innerHTML='';
   Object.entries(cm).sort((a,b)=>b[1]-a[1]).forEach(([k,s])=>{
     const c=cat(k);const el=document.createElement('div');el.className='li';
-    el.innerHTML=`<div class="ldot" style="background:${c.color}"></div><div class="ln">${c.i} ${c.l}</div><div class="ldur">${dTxt(s)}</div><span style="font-size:11px;color:var(--tx3)">🎨</span>`;
+    el.innerHTML=`<div class="ldot" style="background:${c.color}"></div><div class="ln">${c.i} ${c.l}</div><div class="ldur">${dTxt(s)}</div><span style="font-size:11px;color:var(--tx3)">?렓</span>`;
     el.addEventListener('click',()=>openCol(k));leg.appendChild(el);
   });
   const tlbl=document.getElementById('tlbl');tlbl.innerHTML='';
   sorted.forEach(b=>{
     const row=document.createElement('div');row.className='brow';row.dataset.bid=b.id;row.dataset.dk=tlDate;
     const c=cat(b.category);const s=new Date(b.startTime),e=b.endTime?new Date(b.endTime):null;
-    const ts=`${f2(s.getHours())}:${f2(s.getMinutes())}${e?' – '+f2(e.getHours())+':'+f2(e.getMinutes()):''}`;
+    const ts=`${f2(s.getHours())}:${f2(s.getMinutes())}${e?' ??'+f2(e.getHours())+':'+f2(e.getMinutes()):''}`;
     row.innerHTML=`<div class="bdot" style="background:${c.color}"></div><div class="bi"><div class="bn">${c.i} ${b.customLabel||c.l}</div><div class="bt">${ts}</div></div><div class="bdur">${dTxt(dur(b))}</div>`;
     row.addEventListener('click',()=>openEdit(b.id,tlDate));tlbl.appendChild(row);
   });
-  if(!sorted.length)tlbl.innerHTML=`<div style="padding:20px;color:var(--tx2);font-size:14px;text-align:center">기록된 활동이 없어요</div>`;
+  if(!sorted.length)tlbl.innerHTML=`<div style="padding:20px;color:var(--tx2);font-size:14px;text-align:center">湲곕줉???쒕룞???놁뼱??/div>`;
 }
 function rWeekCal(){
   const H=280;const days=[];for(let i=6;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);days.push(d);}
-  const dn=['일','월','화','수','목','금','토'];
+  const dn=['??,'??,'??,'??,'紐?,'湲?,'??];
   const timeLbls=Array.from({length:7},(_,i)=>`<div class="wct" style="top:${(i*4/24)*H}px;transform:translateY(-50%)">${f2(i*4)}</div>`).join('');
   const cols=days.map(d=>{
     const rec=getRec(dk(d));const isT=dk(d)===dk();
@@ -865,10 +853,9 @@ function rWeekCal(){
   document.getElementById('wc').innerHTML=`<div style="display:flex;gap:4px;min-width:260px"><div style="width:22px;padding-top:20px;flex-shrink:0;position:relative;height:${H+20}px">${timeLbls}</div>${cols}</div>`;
 }
 
-// ═══ COLOR PICKER ═══
-function openCol(c){
+// ?먥븧??COLOR PICKER ?먥븧??function openCol(c){
   colCat=c;selColVal=catCol(c);const cm=cat(c);
-  document.getElementById('coltitle').textContent=`${cm.i} ${cm.l} 색상`;
+  document.getElementById('coltitle').textContent=`${cm.i} ${cm.l} ?됱긽`;
   document.getElementById('cswg').innerHTML=PAL.map(p=>`<div class="csw${p===selColVal?' on':''}" style="background:${p}" data-col="${p}"></div>`).join('');
   document.querySelectorAll('#cswg .csw').forEach(sw=>{
     sw.addEventListener('click',function(){
@@ -880,12 +867,11 @@ function openCol(c){
   openOv('col-ov');
 }
 document.getElementById('col-save-btn').addEventListener('click',()=>{
-  if(!colCat||!selColVal)return;setCatCol(colCat,selColVal);closeOv('col-ov');rTL();showToast('색상 변경 ✓');
+  if(!colCat||!selColVal)return;setCatCol(colCat,selColVal);closeOv('col-ov');rTL();showToast('?됱긽 蹂寃???);
 });
 
-// ═══ STATS ═══
-// period tabs
-const periods=[{k:'today',l:'오늘'},{k:'week',l:'이번 주'},{k:'month',l:'이번 달'}];
+// ?먥븧??STATS ?먥븧??// period tabs
+const periods=[{k:'today',l:'?ㅻ뒛'},{k:'week',l:'?대쾲 二?},{k:'month',l:'?대쾲 ??}];
 document.getElementById('ptabs-wrap').innerHTML=periods.map(p=>`<div class="ptab${p.k==='today'?' on':''}" data-p="${p.k}">${p.l}</div>`).join('');
 document.querySelectorAll('.ptab').forEach(tab=>{
   tab.addEventListener('click',function(){
@@ -907,7 +893,7 @@ function rStats(){
   const mealBlocks=allBlocks.filter(b=>b.category==='meal');
   const cm={};blocks.forEach(b=>{cm[b.category]=(cm[b.category]||0)+dur(b)});
   const ents=Object.entries(cm).sort((a,b)=>b[1]-a[1]);const tot=ents.reduce((s,[,v])=>s+v,0);
-  document.getElementById('stlbl').textContent=`총 ${dTxt(tot)} 기록`;document.getElementById('dctr').textContent=dTxt(tot);
+  document.getElementById('stlbl').textContent=`珥?${dTxt(tot)} 湲곕줉`;document.getElementById('dctr').textContent=dTxt(tot);
   let cum=0;
   document.getElementById('darc').innerHTML=ents.map(([k,s])=>{
     const c=cat(k);const fr=tot>0?s/tot:0;const sa=cum*2*Math.PI-Math.PI/2,ea=(cum+fr)*2*Math.PI-Math.PI/2;cum+=fr;
@@ -916,36 +902,35 @@ function rStats(){
   }).join('');
   document.getElementById('stleg').innerHTML=ents.slice(0,6).map(([k,s])=>{const c=cat(k);return`<div class="li"><div class="ldot" style="background:${c.color}"></div><div class="ln">${c.i} ${c.l}</div><div class="ldur">${tot>0?Math.round(s/tot*100):0}%</div></div>`}).join('');
   const mx=ents[0]?.[1]||1;
-  document.getElementById('bch').innerHTML=ents.map(([k,s])=>{const c=cat(k);return`<div class="barrow"><div class="barlbl">${c.i}</div><div class="bartrack"><div class="barfill" style="width:${s/mx*100}%;background:${c.color}"></div></div><div class="barval">${dTxt(s)}</div></div>`}).join('')||'<div style="color:var(--tx2);font-size:14px">기록이 없어요</div>';
+  document.getElementById('bch').innerHTML=ents.map(([k,s])=>{const c=cat(k);return`<div class="barrow"><div class="barlbl">${c.i}</div><div class="bartrack"><div class="barfill" style="width:${s/mx*100}%;background:${c.color}"></div></div><div class="barval">${dTxt(s)}</div></div>`}).join('')||'<div style="color:var(--tx2);font-size:14px">湲곕줉???놁뼱??/div>';
   // spending stats
   const totalSpend=allBlocks.reduce((s,b)=>s+(b.cost||0),0);
   const mealSpend=mealBlocks.reduce((s,b)=>s+(b.cost||0),0);
   const mealCount=mealBlocks.length;
   const avgHB=mealBlocks.filter(b=>b.hungerBefore!=null).reduce((s,b,_,a)=>s+b.hungerBefore/a.length,0);
   const avgHA=mealBlocks.filter(b=>b.hungerAfter!=null).reduce((s,b,_,a)=>s+b.hungerAfter/a.length,0);
-  document.getElementById('spend-sub').textContent=`${sPeriod==='today'?'오늘':sPeriod==='week'?'이번 주':'이번 달'} 총 ${won(totalSpend)}`;
-  document.getElementById('spend-body').innerHTML=totalSpend===0?'<div style="color:var(--tx2);font-size:14px">소비 기록이 없어요</div>':`
+  document.getElementById('spend-sub').textContent=`${sPeriod==='today'?'?ㅻ뒛':sPeriod==='week'?'?대쾲 二?:'?대쾲 ??} 珥?${won(totalSpend)}`;
+  document.getElementById('spend-body').innerHTML=totalSpend===0?'<div style="color:var(--tx2);font-size:14px">?뚮퉬 湲곕줉???놁뼱??/div>':`
     <div style="display:flex;flex-direction:column;gap:10px">
       <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--sf2);border-radius:10px">
-        <span style="font-size:14px">🍽 식사 지출</span><span style="font-weight:700;font-family:'DM Mono',monospace">${won(mealSpend)}</span>
+        <span style="font-size:14px">?띂 ?앹궗 吏異?/span><span style="font-weight:700;font-family:'DM Mono',monospace">${won(mealSpend)}</span>
       </div>
       ${totalSpend-mealSpend>0?`<div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--sf2);border-radius:10px">
-        <span style="font-size:14px">📦 기타 지출</span><span style="font-weight:700;font-family:'DM Mono',monospace">${won(totalSpend-mealSpend)}</span>
+        <span style="font-size:14px">?벀 湲고? 吏異?/span><span style="font-weight:700;font-family:'DM Mono',monospace">${won(totalSpend-mealSpend)}</span>
       </div>`:''}
       ${mealCount>0?`<div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--sf2);border-radius:10px">
-        <span style="font-size:14px">🍽 평균 배고픔</span><span style="font-weight:700;font-family:'DM Mono',monospace">전 ${avgHB.toFixed(1)} → 후 ${avgHA.toFixed(1)}</span>
+        <span style="font-size:14px">?띂 ?됯퇏 諛곌퀬??/span><span style="font-weight:700;font-family:'DM Mono',monospace">??${avgHB.toFixed(1)} ????${avgHA.toFixed(1)}</span>
       </div>`:''}
     </div>`;
   // insights
   const sl=cm['sleep']||0,st2=cm['study']||0,ex=cm['exercise']||0;
   document.getElementById('ins').innerHTML=[
-    {i:'🌙',l:'수면 시간',v:sl>0?dTxt(sl):'-',s:sl>25200?'충분해요 👍':sl>0?'조금 부족해요':'기록 없음'},
-    {i:'📖',l:'공부 시간',v:st2>0?dTxt(st2):'-'},{i:'🏃',l:'운동 시간',v:ex>0?dTxt(ex):'-'},
-  ].map(x=>`<div class="ic"><div class="iico">${x.i}</div><div><div class="ilbl">${x.l}${x.s?' · '+x.s:''}</div><div class="ival">${x.v}</div></div></div>`).join('');
+    {i:'?뙔',l:'?섎㈃ ?쒓컙',v:sl>0?dTxt(sl):'-',s:sl>25200?'異⑸텇?댁슂 ?몟':sl>0?'議곌툑 遺議깊빐??:'湲곕줉 ?놁쓬'},
+    {i:'?뱰',l:'怨듬? ?쒓컙',v:st2>0?dTxt(st2):'-'},{i:'?룂',l:'?대룞 ?쒓컙',v:ex>0?dTxt(ex):'-'},
+  ].map(x=>`<div class="ic"><div class="iico">${x.i}</div><div><div class="ilbl">${x.l}${x.s?' 쨌 '+x.s:''}</div><div class="ival">${x.v}</div></div></div>`).join('');
 }
 
-// ═══ HISTORY ═══
-function rHist(){
+// ?먥븧??HISTORY ?먥븧??function rHist(){
   const recs=allRecs();const hl=document.getElementById('hl'),he=document.getElementById('he');
   if(!recs.length){hl.style.display='none';he.style.display='block';return;}
   hl.style.display='flex';he.style.display='none';hl.innerHTML='';
@@ -955,11 +940,11 @@ function rHist(){
     const sl=rec.blocks.filter(b=>b.category==='sleep').reduce((s,b)=>s+dur(b),0);
     const ml=rec.blocks.filter(b=>b.category==='meal').length;
     const totalSpend=rec.blocks.reduce((s,b)=>s+(b.cost||0),0);
-    const meta=[rec.wake?'기상 '+ft(new Date(rec.wake)):'',sl>0?'수면 '+dTxt(sl):'',ml>0?`식사 ${ml}회`:'',totalSpend>0?'💳 '+won(totalSpend):''].filter(Boolean).join(' · ');
+    const meta=[rec.wake?'湲곗긽 '+ft(new Date(rec.wake)):'',sl>0?'?섎㈃ '+dTxt(sl):'',ml>0?`?앹궗 ${ml}??:'',totalSpend>0?'?뮩 '+won(totalSpend):''].filter(Boolean).join(' 쨌 ');
     const card=document.createElement('div');card.className='hcard';
     const hdr=document.createElement('div');hdr.className='hch';
-    hdr.innerHTML=`<div class="hdb"><div class="hdn">${d.getDate()}</div><div class="hdm">${d.getMonth()+1}월</div></div>
-      <div class="hdi"><div class="hdd">${cats.map(c=>`<div class="hddot" style="background:${catCol(c)}"></div>`).join('')}</div><div class="hdmeta">${meta||'기록 없음'}</div></div>
+    hdr.innerHTML=`<div class="hdb"><div class="hdn">${d.getDate()}</div><div class="hdm">${d.getMonth()+1}??/div></div>
+      <div class="hdi"><div class="hdd">${cats.map(c=>`<div class="hddot" style="background:${catCol(c)}"></div>`).join('')}</div><div class="hdmeta">${meta||'湲곕줉 ?놁쓬'}</div></div>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>`;
     const body=document.createElement('div');body.className='dblocks';
     // build blocks
@@ -972,12 +957,12 @@ function rHist(){
       if(phs.length){
         phHTML=`<div class="pgrid3">${phs.map((p,pi)=>`<img src="${p}" data-bi="${b.id}" data-bdk="${rec.date}" data-pi="${pi}" loading="lazy">`).join('')}</div>`;
       }
-      const costLine=b.cost?`<div style="font-size:11px;color:var(--tx2);margin-top:3px">💳 ${won(b.cost)}</div>`:'';
-      const hungerLine=(b.hungerBefore!==undefined&&b.category==='meal')?`<div style="font-size:11px;color:var(--tx2);margin-top:2px">배고픔 ${b.hungerBefore}→${b.hungerAfter}</div>`:'';
+      const costLine=b.cost?`<div style="font-size:11px;color:var(--tx2);margin-top:3px">?뮩 ${won(b.cost)}</div>`:'';
+      const hungerLine=(b.hungerBefore!==undefined&&b.category==='meal')?`<div style="font-size:11px;color:var(--tx2);margin-top:2px">諛곌퀬??${b.hungerBefore}??{b.hungerAfter}</div>`:'';
       drow.innerHTML=`<div class="ddot" style="background:${c.color}"></div>
         <div class="dcont">
           <div class="dname">${c.i} ${b.customLabel||c.l}</div>
-          <div class="dtime">${ft(new Date(b.startTime))}${b.endTime?' – '+ft(new Date(b.endTime)):''} · ${dTxt(dur(b))}</div>
+          <div class="dtime">${ft(new Date(b.startTime))}${b.endTime?' ??'+ft(new Date(b.endTime)):''} 쨌 ${dTxt(dur(b))}</div>
           ${b.note?`<div class="dnote">${b.note}</div>`:''}${costLine}${hungerLine}${phHTML}
         </div>`;
       // photo editor buttons
@@ -989,7 +974,7 @@ function rHist(){
         });
       });
       // add button
-      const addBtn=document.createElement('button');addBtn.className='addpbtn';addBtn.textContent='+ 사진/메모 추가';
+      const addBtn=document.createElement('button');addBtn.className='addpbtn';addBtn.textContent='+ ?ъ쭊/硫붾え 異붽?';
       addBtn.addEventListener('click',()=>openDiary(b.id,rec.date,{stopPropagation:()=>{}}));
       drow.querySelector('.dcont').appendChild(addBtn);
       body.appendChild(drow);
@@ -999,14 +984,13 @@ function rHist(){
   });
 }
 
-// ═══ DIARY ═══
-function openDiary(bid,d,e){
+// ?먥븧??DIARY ?먥븧??function openDiary(bid,d,e){
   if(e&&e.stopPropagation)e.stopPropagation();
   dBId=bid;dBDk=d;
   const rec=getRec(d);const b=rec.blocks.find(x=>x.id===bid);if(!b)return;
   dPhotos=[...(b.photos||[])];
   const c=cat(b.category);
-  document.getElementById('dinfo').textContent=`${c.i} ${b.customLabel||c.l} · ${ft(new Date(b.startTime))}`;
+  document.getElementById('dinfo').textContent=`${c.i} ${b.customLabel||c.l} 쨌 ${ft(new Date(b.startTime))}`;
   document.getElementById('dnote').value=b.note||'';
   rDiaryPrev();
   document.getElementById('dfc').value='';document.getElementById('dfg').value='';
@@ -1018,7 +1002,7 @@ function rDiaryPrev(){
     const wrap=document.createElement('div');wrap.style.cssText='position:relative;flex-shrink:0';
     const img=document.createElement('img');img.src=p;img.style.cssText='width:64px;height:64px;border-radius:8px;object-fit:cover;cursor:pointer';
     img.addEventListener('click',()=>{edPIdx=i;openEdSrc(p,'diary')});
-    const del=document.createElement('button');del.textContent='×';del.style.cssText='position:absolute;top:-4px;right:-4px;width:18px;height:18px;border-radius:50%;background:#FF453A;border:none;color:#fff;font-size:11px;cursor:pointer;line-height:1';
+    const del=document.createElement('button');del.textContent='횞';del.style.cssText='position:absolute;top:-4px;right:-4px;width:18px;height:18px;border-radius:50%;background:#FF453A;border:none;color:#fff;font-size:11px;cursor:pointer;line-height:1';
     del.addEventListener('click',()=>{dPhotos.splice(i,1);rDiaryPrev()});
     wrap.appendChild(img);wrap.appendChild(del);prev.appendChild(wrap);
   });
@@ -1031,11 +1015,10 @@ document.getElementById('dfg').addEventListener('change',addDiaryPh);
 document.getElementById('diary-save-btn').addEventListener('click',()=>{
   const rec=getRec(dBDk);const i=rec.blocks.findIndex(b=>b.id===dBId);if(i<0)return;
   rec.blocks[i].note=document.getElementById('dnote').value.trim();rec.blocks[i].photos=dPhotos;saveRec(rec);
-  closeOv('diary-ov');rHist();showToast('저장 완료 ✓');
+  closeOv('diary-ov');rHist();showToast('????꾨즺 ??);
 });
 
-// ═══ PHOTO EDITOR ═══
-let edMode2='diary';
+// ?먥븧??PHOTO EDITOR ?먥븧??let edMode2='diary';
 function openEdSrc(src,mode){
   edMode2=mode;edLayers=[];edTool='text';edCol='#ffffff';edBase=null;
   document.getElementById('edov').classList.add('open');
@@ -1098,15 +1081,14 @@ document.getElementById('ed-save-btn').addEventListener('click',()=>{
   else{const rec=getRec(edBDk);const b=rec.blocks.find(x=>x.id===edBId);if(b){if(!b.photos)b.photos=[];b.photos[edPIdx]=res;saveRec(rec);}rHist();}
   document.getElementById('edov').classList.remove('open');
   const cv2=document.getElementById('ec');cv2.onpointerdown=null;cv2.onpointermove=null;cv2.onpointerup=null;
-  showToast('사진 저장 ✓');
+  showToast('?ъ쭊 ?????);
 });
 document.getElementById('ed-cancel-btn').addEventListener('click',()=>{
   document.getElementById('edov').classList.remove('open');
   const cv=document.getElementById('ec');cv.onpointerdown=null;cv.onpointermove=null;cv.onpointerup=null;
 });
 
-// ═══ CAT GRID ═══
-function rCatGrid(gid,curCat){
+// ?먥븧??CAT GRID ?먥븧??function rCatGrid(gid,curCat){
   const grid=document.getElementById(gid);grid.innerHTML='';
   Object.entries(CMETA).forEach(([k,m])=>{
     const col=catCol(k);const chip=document.createElement('div');chip.className='cchip'+(k===curCat?' sel':'');
@@ -1125,8 +1107,7 @@ function rCatGrid(gid,curCat){
   });
 }
 
-// ═══ PWA ═══
-if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js').catch(()=>{});
+// ?먥븧??PWA ?먥븧??if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js').catch(()=>{});
 
 // INIT
 rToday();
@@ -1159,9 +1140,9 @@ function createHeartSlider(containerId, inputId){
 </script>
 
 <script>
-const HEART_FULL_SRC = './1.png';
-const HEART_HALF_SRC = './2.png';
-const HEART_EMPTY_SRC = './3.png';
+const HEART_FULL_SRC = 'data:image/png;base64,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AEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUnfTA4B1fbw8Tk8AAADgH+RCCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACB1Nz2AtZzez9MTWMjD/X56AgAA35j/BXCLCykAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAA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kAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACktukBALzGPT2AdXyPfXoCC/mc1/QE1uKPAcBPLqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUtv0AADgle7pASzFmxIA+IsLKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASMTPieUAAAD9SURBVAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAICUIAUAAABASpACAAAAICVIAQAAAJASpAAAAABICVIAAAAApAQpAAAAAFKCFAAAAAApQQoAAACAlCAFAAAAQEqQAgAAACAlSAEAAACQEqQAAAAASAlSAAAAAKQEKQAAAABSghQAAAAAKUEKAAAAgJQgBQAAAEBKkAIAAAAgJUgBAAAAkBKkAAAAAEgJUgAAAACkBCkAAAAAUoIUAAAAAClBCgAAAIDUA5OwM0ljguy0AAAAAElFTkSuQmCC';
+const HEART_HALF_SRC = 'data:image/png;base64,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';
+const HEART_EMPTY_SRC = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaQAAAGkCAMAAABJkqEHAAAAMFBMVEVHcEwPDw8+Pj7////4+PhQUFB9fX0iIiKsrKwRERGMjIxaWlooKCgAAAAbGxsICAjG+KLtAAAADHRSTlMA/boMHqNt4ETzXpVGQ/5qAAAEeElEQVR42u3cza6bOgCFUQMJfwH8/m/bquMMsiWsglj73E6PuF79cEeU0nDztLfbMiaPMrwbPsrev8pt9xSkCklJkJSkJEhKgqQkJUFSEiQlKQmSkpQESUmQlKQkSEqCpCQlQVISJCUpCZKSlARJSZCUpCRISoKkJCVBUpKSICkJkpKUBElJkJSkJEhKgqQkJUFSkpIej7Qq6fv/arbGJSWP8mpcUnYwTY3Gd7R+Oxquj55lavkoU3Yun7klUvjXsW4t10WPcrR8lCM7l26E9HWQIDX8hykkJUGCBAmSO0lJkJQESUmQIEGC5E5SEiQlQVISJEiQ3EmQlARJSUqCBAkSJHcSJCUpCZKSIEGCBMmdBElJSoKkJEiQIEFyJykJkpIgKQkSJEiQ3ElKggTJ6y7bnKyv0bqmSEf0LE2Rtuxclk906nOZkv07m+BP413oUbKnmbKVvy+ln//bl81OelMHp76X67zYn4WUDBIkgwQJEiRIkCAZJEiQIBkkSJAgGSRIkCBBggTJIEGCBMkgQYIECRIkSAYJEiRIBgkSJEgGCRIkSJAgQTJIkCBBMkiQIEGCBAmSQYIECZJBggQJkkGCBAkSJEiQDBIkSJAMEiRIkCBBgmSQIEGCZJAgQYJkkCBBggQJEiSDBAkSJIMECRIkSJAgGSRIkCAZJEiQIBkkSJAgQYIEySBBggTJIEGCBAkSJEgGCRIkSAYJEiRIBgkSJEiQIEEySJAgQTJIkCBBMkiQDBIkSJAMEiRIkAwSJEiQIEGCZJAgQYJkZyItySCdsyVbWZP1XY1+nnLoR5ccS13e0amvJdnwzjKtj0HKjqUbS7tBOgVpXyBdH0lJkCBBcidBUhIkSJAguZMgKUlJkJQECRIkSO4kJUFSEiQlQYIECZI7SUmQlKQkSJAgQXInQVISJCUpCRIkSJDcSZCUpCRISoIECRIkdxIkJSkJkpIgQYIE6TJIY59tO5Jd69yTTeG5rKWl0ivaOu31913q63hHTdbP2cEM5Tqbp9u+HKMXWO2vdOoPQqrJo/cvSFdHqpCUBElJSoKkJEhKUhIkJUFSkpIgKUlJkJQESUlKgqQkSEpSEiQlQVKSkiApSUmQlARJSUqCpCRISlISJCUpCZKSIClJSZCUBElJSoKkJEhKUhIkJT3lszX3LunT8Jte4Ue9st8dfndrvPG3hUr6Ta+9/v5TM6Uu+M17+t2tOxu1fDnue4r0mBfYlZCy7+NVSGdsVdLTX3dKcidBUpI7CZKSIClJSeZOUpKS3EmQlOROgqQkSEpSEiR3kpKU5E4yJbmTlKQkSEpSEiR3kpKU5E4yJbmTlKQkSEpSEiR3kpKU5E6CpCR3kpKUZO4kSEpyJylJSVdC2iDdoKSuW4KfDGmJfncH6fte6xit74Id7+yXrwOQM/ZJXl/L6sD+wwZIkAwSJEiQDBIkg2SQIBkkSJAgGSRIkCAZJEgGySBBMkiQIEEySJAMkkGCZJAgQYJkkCBBgmSQIBkkgwTJIEGCBMkgQbrn/gBvty4eUV7ctAAAAABJRU5ErkJggg==';
 
 function formatHungerValue(value){
   return Number.isInteger(value) ? String(value) : value.toFixed(1);
@@ -1203,3 +1184,4 @@ updateHungerSlider('hunger-after','ha-hearts','ha-num','ha-val');
 
 </body>
 </html>
+
