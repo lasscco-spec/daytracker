@@ -1,5 +1,5 @@
-﻿const CACHE = 'daytracker-v5-claude-code-v1';
-const ASSETS = ['./', './index.html', './manifest.json'];
+﻿const CACHE = 'daytracker-v5-claude-code-v2';
+const ASSETS = ['./', './index.html', './manifest.json', './1.png', './2.png', './3.png'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
@@ -28,7 +28,10 @@ self.addEventListener('fetch', event => {
           }
           return response;
         })
-        .catch(() => (event.request.mode === 'navigate' ? caches.match('./index.html') : Promise.reject()));
+        .catch(() => {
+          if (event.request.mode === 'navigate') return caches.match('./index.html');
+          return Promise.reject();
+        });
     })
   );
 });
