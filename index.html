@@ -18,7 +18,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .page{display:none;flex:1;overflow-y:auto;padding-bottom:calc(var(--tbh) + var(--sb) + 8px)}.page.active{display:block}
 
 /* TAB */
-.tab-bar{position:fixed;bottom:0;left:0;right:0;height:calc(var(--tbh) + var(--sb));background:rgba(14,14,14,.95);backdrop-filter:blur(20px);border-top:1px solid var(--bd);display:flex;align-items:flex-start;padding-top:8px;z-index:100}
+.tab-bar{position:fixed;left:0;right:0;bottom:0;height:calc(var(--tbh) + var(--sb));padding:8px 0 var(--sb);background:rgba(14,14,14,.98);backdrop-filter:blur(20px);border-top:1px solid var(--bd);display:flex;align-items:flex-start;z-index:1000}
 .tb{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;border:none;background:none;color:var(--tx3);font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;padding:6px 0;cursor:pointer;transition:color .2s}
 .tb svg{width:22px;height:22px}.tb.on{color:var(--tx)}
 
@@ -258,7 +258,7 @@ var(--bg)}
 
 <!-- TIMELINE -->
 <div id="timeline-page" class="page">
-  <div class="ph"><div class="pt">??꾨씪??/div></div>
+  <div class="ph"><div class="pt">타임라인</div></div>
   <div class="dstrip" id="ds"></div>
   <div class="rw">
   <div class="dayrect">
@@ -268,7 +268,7 @@ var(--bg)}
 </div>
 <div class="lgrid" id="tlleg"></div>
   <div class="div" style="margin:0 20px 16px"></div>
-  <div style="padding:0 20px;margin-bottom:8px;font-size:15px;font-weight:600">二쇨컙 罹섎┛??/div>
+  <div style="padding:0 20px;margin-bottom:8px;font-size:15px;font-weight:600">주간 캘린더</div>
   <div class="wcwrap" id="wc"></div>
   <div class="div" style="margin:0 20px 16px"></div>
   <div id="tlbl" style="padding:0"></div>
@@ -278,49 +278,49 @@ var(--bg)}
 <!-- MEALS -->
 <div id="meals-page" class="page">
   <div class="ph" style="display:flex;align-items:flex-end;justify-content:space-between">
-    <div><div class="pt">?앹궗</div><div class="ps" id="msub">?ㅻ뒛</div></div>
-    <button class="btn bo bsm" onclick="openMeal()">?벜 異붽?</button>
+    <div><div class="pt">식사</div><div class="ps" id="msub">오늘</div></div>
+    <button class="btn bo bsm" onclick="openMeal()">사진 추가</button>
   </div>
   <div class="mgrid" id="mg"></div>
-  <div id="me" class="empty" style="display:none"><div class="ei">?띂</div><p>?앹궗瑜?湲곕줉?대낫?몄슂</p></div>
+  <div id="me" class="empty" style="display:none"><div class="ei">🍽</div><p>식사를 기록해보세요</p></div>
 </div>
 
 <!-- STATS -->
 <div id="stats-page" class="page">
-  <div class="ph"><div class="pt">?듦퀎</div><div class="ps">?쒓컙???대뼸寃??곌퀬 ?덈굹??/div></div>
+  <div class="ph"><div class="pt">통계</div><div class="ps">시간을 어떻게 쓰고 있나요</div></div>
   <div style="padding:0 20px 20px">
     <div class="ptabs">
-      <div class="ptab on" onclick="setPeriod('today',this)">?ㅻ뒛</div>
-      <div class="ptab" onclick="setPeriod('week',this)">?대쾲 二?/div>
-      <div class="ptab" onclick="setPeriod('month',this)">?대쾲 ??/div>
+      <div class="ptab on" onclick="setPeriod('today',this)">오늘</div>
+      <div class="ptab" onclick="setPeriod('week',this)">이번 주</div>
+      <div class="ptab" onclick="setPeriod('month',this)">이번 달</div>
     </div>
     <div class="card" style="margin-bottom:12px">
-      <div style="font-size:15px;font-weight:600;margin-bottom:4px">移댄뀒怨좊━蹂??쒓컙</div>
-      <div style="font-size:12px;color:var(--tx2);margin-bottom:16px" id="stlbl">珥?0?쒓컙 湲곕줉</div>
+      <div style="font-size:15px;font-weight:600;margin-bottom:4px">카테고리별 시간</div>
+      <div style="font-size:12px;color:var(--tx2);margin-bottom:16px" id="stlbl">총 0시간 기록</div>
       <div class="dwrap">
         <svg id="dsv" viewBox="0 0 180 180">
           <circle cx="90" cy="90" r="68" fill="none" stroke="#1e1e1e" stroke-width="26"/>
           <g id="darc"></g>
-          <text x="90" y="86" text-anchor="middle" fill="#666" font-size="11" font-family="DM Sans">珥?/text>
+          <text x="90" y="86" text-anchor="middle" fill="#666" font-size="11" font-family="DM Sans">총</text>
           <text id="dctr" x="90" y="106" text-anchor="middle" fill="#f0f0f0" font-size="18" font-weight="700" font-family="DM Sans">0h</text>
         </svg>
       </div>
       <div class="lgrid" id="stleg" style="padding:0"></div>
     </div>
     <div class="card" style="margin-bottom:12px">
-      <div style="font-size:15px;font-weight:600;margin-bottom:16px">?쒕룞蹂??쒓컙 鍮꾧탳</div>
+      <div style="font-size:15px;font-weight:600;margin-bottom:16px">활동별 시간 비교</div>
       <div class="barchart" id="bch"></div>
     </div>
-    <div style="font-size:15px;font-weight:600;margin-bottom:10px">?몄궗?댄듃</div>
+    <div style="font-size:15px;font-weight:600;margin-bottom:10px">인사이트</div>
     <div id="ins"></div>
   </div>
 </div>
 
 <!-- HISTORY -->
 <div id="history-page" class="page">
-  <div class="ph"><div class="pt">湲곕줉</div><div class="ps">?좎쭨蹂??ъ쭊 ?쇨린</div></div>
+  <div class="ph"><div class="pt">기록</div><div class="ps">날짜별 사진과 활동 보기</div></div>
   <div class="hlist" id="hl"></div>
-  <div id="he" class="empty" style="display:none"><div class="ei">?뱟</div><p>湲곕줉???놁뼱??/p></div>
+  <div id="he" class="empty" style="display:none"><div class="ei">🗂</div><p>기록이 아직 없어요</p></div>
 </div>
 
 <!-- TAB BAR -->
@@ -363,20 +363,20 @@ var(--bg)}
 <!-- Meal -->
 <div class="ov" id="meal-ov" onclick="cls('meal-ov')">
   <div class="sheet" onclick="event.stopPropagation()">
-    <div class="sh"></div><div class="stitle">?앹궗 湲곕줉</div>
+    <div class="sh"></div><div class="stitle">식사 기록</div>
     <div class="cama" id="ca">
   <div class="camph" id="caph"><div class="cpi">📷</div><p>사진을 추가해보세요</p></div>
   <img id="mprev" style="display:none;width:100%;height:100%;object-fit:cover">
 </div>
 <div class="mprevstrip" id="mprevstrip" style="display:none"></div>
 <div class="psrow">
-      <button class="btn bo" style="flex:1" onclick="document.getElementById('fc').click()">?벜 移대찓??/button>
-      <button class="btn bo" style="flex:1" onclick="document.getElementById('fg2').click()">?뼹 媛ㅻ윭由?/button>
+      <button class="btn bo" style="flex:1" onclick="document.getElementById('fc').click()">📷 카메라</button>
+      <button class="btn bo" style="flex:1" onclick="document.getElementById('fg2').click()">🖼 갤러리</button>
     </div>
     <input type="file" id="fc" accept="image/*" capture="environment" style="display:none" onchange="handlePh(event)">
     <input type="file" id="fg2" accept="image/*" multiple style="display:none" onchange="handlePh(event)">
-    <div class="fg"><label class="fl">硫붾え (?좏깮)</label><input class="fi" id="mnote" placeholder="臾댁뾿??癒뱀뿀?섏슂?"></div>
-    <button class="btn bp" onclick="saveMeal()">???/button>
+    <div class="fg"><label class="fl">메모 (선택)</label><input class="fi" id="mnote" placeholder="무엇을 먹었나요?"></div>
+    <button class="btn bp" onclick="saveMeal()">저장</button>
   </div>
 </div>
 
@@ -407,29 +407,29 @@ var(--bg)}
 <!-- Color picker -->
 <div class="ov" id="col-ov" onclick="cls('col-ov')">
   <div class="sheet" onclick="event.stopPropagation()">
-    <div class="sh"></div><div class="stitle" id="coltitle">?됱긽 ?좏깮</div>
+    <div class="sh"></div><div class="stitle" id="coltitle">색상 선택</div>
     <div class="cswgrid" id="cswg"></div>
-    <button class="btn bp" onclick="saveColor()">???/button>
+    <button class="btn bp" onclick="saveColor()">저장</button>
   </div>
 </div>
 
 <!-- Diary -->
 <div class="ov" id="diary-ov" onclick="cls('diary-ov')">
   <div class="sheet" onclick="event.stopPropagation()">
-    <div class="sh"></div><div class="stitle">?쒕룞 硫붾え & ?ъ쭊</div>
+  <div class="sh"></div><div class="stitle">활동 메모 & 사진</div>
     <div style="font-size:14px;color:var(--tx2);margin-bottom:16px" id="dinfo"></div>
-    <div class="fg"><label class="fl">硫붾え</label><textarea class="fi" id="dnote" rows="4" placeholder="???쒓컙?????湲곕줉?대낫?몄슂..." style="resize:none"></textarea></div>
+    <div class="fg"><label class="fl">메모</label><textarea class="fi" id="dnote" rows="4" placeholder="이 시간에 남길 기록을 적어보세요..." style="resize:none"></textarea></div>
     <div style="margin-bottom:16px">
-      <label class="fl">?ъ쭊</label>
+      <label class="fl">사진</label>
       <div id="dprev" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"></div>
       <div class="psrow">
-        <button class="btn bo" style="flex:1" onclick="document.getElementById('dfc').click()">?벜 移대찓??/button>
-        <button class="btn bo" style="flex:1" onclick="document.getElementById('dfg').click()">?뼹 媛ㅻ윭由?/button>
+        <button class="btn bo" style="flex:1" onclick="document.getElementById('dfc').click()">📷 카메라</button>
+        <button class="btn bo" style="flex:1" onclick="document.getElementById('dfg').click()">🖼 갤러리</button>
       </div>
       <input type="file" id="dfc" accept="image/*" capture="environment" style="display:none" onchange="addDiaryPh(event)">
       <input type="file" id="dfg" accept="image/*" style="display:none" multiple onchange="addDiaryPh(event)">
     </div>
-    <button class="btn bp" onclick="saveDiary()">???/button>
+    <button class="btn bp" onclick="saveDiary()">저장</button>
   </div>
 </div>
 
@@ -731,7 +731,7 @@ function rTL(){rDStrip();rDayTimeline();rWeekCal()}
 function rDStrip(){
   const strip=document.getElementById('ds');const days=[];
   for(let i=13;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);days.push(d);}
-  const dn=['??,'??,'??,'??,'紐?,'湲?,'??];
+  const dn=['일','월','화','수','목','금','토'];
   strip.innerHTML=days.map(d=>{const k=dk(d);return`<div class="dchip ${k===tlDate?'on':''}" onclick="selTL('${k}')"><div class="dday">${dn[d.getDay()]}</div><div class="dnum">${d.getDate()}</div></div>`}).join('');
   setTimeout(()=>strip.scrollLeft=strip.scrollWidth,50);
 }
@@ -765,7 +765,7 @@ function rDayTimeline(){
 
 function rWeekCal(){
   const H=300;const days=[];for(let i=6;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);days.push(d);}
-  const dn=['??,'??,'??,'??,'紐?,'湲?,'??];
+  const dn=['일','월','화','수','목','금','토'];
   const timeLbls=Array.from({length:7},(_,i)=>{
     const h=i*4,top=(h/24)*H;
     return`<div class="wct" style="top:${top}px;transform:translateY(-50%)">${f2(h)}</div>`;
@@ -792,12 +792,12 @@ function rWeekCal(){
 
 // ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??COLOR PICKER ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??function openCol(c){
   colCat=c;selColVal=catCol(c);const cm=cat(c);
-  document.getElementById('coltitle').textContent=`${cm.i} ${cm.l} ?됱긽`;
+  document.getElementById('coltitle').textContent=`${cm.i} ${cm.l} 색상`;
   document.getElementById('cswg').innerHTML=PAL.map(p=>`<div class="csw ${p===selColVal?'on':''}" style="background:${p}" onclick="selCol('${p}',this)"></div>`).join('');
   document.getElementById('col-ov').classList.add('open');
 }
 function selCol(c,el){selColVal=c;document.querySelectorAll('.csw').forEach(s=>s.classList.remove('on'));el.classList.add('on')}
-function saveColor(){if(!colCat||!selColVal)return;setCatCol(colCat,selColVal);cls('col-ov');rTL();toast('?됱긽 蹂寃???)}
+function saveColor(){if(!colCat||!selColVal)return;setCatCol(colCat,selColVal);cls('col-ov');rTL();toast('색상 변경 완료')}
 
 // ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??MEALS ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??function rMeals(){
   const rec=getRec();const meals=rec.blocks.filter(b=>b.category==='meal').sort((a,b)=>new Date(a.startTime)-new Date(b.startTime));
@@ -824,7 +824,7 @@ function getPerBlocks(){
 function rStats(){
   const blocks=getPerBlocks();const cm={};blocks.forEach(b=>{cm[b.category]=(cm[b.category]||0)+dur(b)});
   const ents=Object.entries(cm).sort((a,b)=>b[1]-a[1]);const tot=ents.reduce((s,[,v])=>s+v,0);
-  document.getElementById('stlbl').textContent=`珥?${dTxt(tot)} 湲곕줉`;document.getElementById('dctr').textContent=dTxt(tot);
+  document.getElementById('stlbl').textContent=`총 ${dTxt(tot)} 기록`;document.getElementById('dctr').textContent=dTxt(tot);
   let cum=0;
   document.getElementById('darc').innerHTML=ents.map(([k,s])=>{
     const c=cat(k);const fr=tot>0?s/tot:0;const sa=cum*2*Math.PI-Math.PI/2,ea=(cum+fr)*2*Math.PI-Math.PI/2;cum+=fr;
@@ -833,12 +833,12 @@ function rStats(){
   }).join('');
   document.getElementById('stleg').innerHTML=ents.slice(0,6).map(([k,s])=>{const c=cat(k);return`<div class="li"><div class="ldot" style="background:${c.color}"></div><div class="ln">${c.i} ${c.l}</div><div class="ldur">${tot>0?Math.round(s/tot*100):0}%</div></div>`}).join('');
   const mx=ents[0]?.[1]||1;
-  document.getElementById('bch').innerHTML=ents.map(([k,s])=>{const c=cat(k);return`<div class="barrow"><div class="barlbl">${c.i}</div><div class="bartrack"><div class="barfill" style="width:${s/mx*100}%;background:${c.color}"></div></div><div class="barval">${dTxt(s)}</div></div>`}).join('')||'<div style="color:var(--tx2);font-size:14px">湲곕줉???놁뼱??/div>';
+  document.getElementById('bch').innerHTML=ents.map(([k,s])=>{const c=cat(k);return`<div class="barrow"><div class="barlbl">${c.i}</div><div class="bartrack"><div class="barfill" style="width:${s/mx*100}%;background:${c.color}"></div></div><div class="barval">${dTxt(s)}</div></div>`}).join('')||'<div style="color:var(--tx2);font-size:14px">기록이 없어요</div>';
   const sl=cm['sleep']||0,st2=cm['study']||0,ex=cm['exercise']||0;
   document.getElementById('ins').innerHTML=[
-    {i:'?뙔',l:'?섎㈃ ?쒓컙',v:sl>0?dTxt(sl):'-',s:sl>25200?'異⑸텇?댁슂 ?몟':sl>0?'議곌툑 遺議깊빐??:'湲곕줉 ?놁쓬'},
-    {i:'?뱰',l:'怨듬? ?쒓컙',v:st2>0?dTxt(st2):'-'},{i:'?룂',l:'?대룞 ?쒓컙',v:ex>0?dTxt(ex):'-'}
-  ].map(x=>`<div class="ic"><div class="iico">${x.i}</div><div><div class="ilbl">${x.l}${x.s?' 쨌 '+x.s:''}</div><div class="ival">${x.v}</div></div></div>`).join('');
+    {i:'🌙',l:'수면 시간',v:sl>0?dTxt(sl):'-',s:sl>25200?'충분해요':sl>0?'조금 부족해요':'기록 없음'},
+    {i:'📘',l:'공부 시간',v:st2>0?dTxt(st2):'-'},{i:'🏃',l:'운동 시간',v:ex>0?dTxt(ex):'-'}
+  ].map(x=>`<div class="ic"><div class="iico">${x.i}</div><div><div class="ilbl">${x.l}${x.s?' · '+x.s:''}</div><div class="ival">${x.v}</div></div></div>`).join('');
 }
 
 // ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??HISTORY ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??function rHist(){
@@ -850,24 +850,24 @@ function rStats(){
     const cats=[...new Set(rec.blocks.map(b=>b.category))];
     const sl=rec.blocks.filter(b=>b.category==='sleep').reduce((s,b)=>s+dur(b),0);
     const ml=rec.blocks.filter(b=>b.category==='meal').length;
-    const meta=[rec.wake?'湲곗긽 '+ft(new Date(rec.wake)):'',sl>0?'?섎㈃ '+dTxt(sl):'',ml>0?`?앹궗 ${ml}??:''].filter(Boolean).join(' 쨌 ');
+    const meta=[rec.wake?'기상 '+ft(new Date(rec.wake)):'',sl>0?'수면 '+dTxt(sl):'',ml>0?`식사 ${ml}회`:''].filter(Boolean).join(' · ');
     const bHTML=rec.blocks.sort((a,b)=>new Date(a.startTime)-new Date(b.startTime)).map(b=>{
       const c=cat(b.category);const phs=(b.photos||[]).slice(0,3);
       return`<div class="drow">
         <div class="ddot" style="background:${c.color}"></div>
         <div class="dcont">
           <div class="dname">${c.i} ${b.customLabel||c.l}</div>
-          <div class="dtime">${ft(new Date(b.startTime))}${b.endTime?' ??'+ft(new Date(b.endTime)):''} 쨌 ${dTxt(dur(b))}</div>
+          <div class="dtime">${ft(new Date(b.startTime))}${b.endTime?' - '+ft(new Date(b.endTime)):''} · ${dTxt(dur(b))}</div>
           ${b.note?`<div class="dnote">${b.note}</div>`:''}
           ${phs.length?`<div class="dphotos">${phs.map((p,pi)=>`<img class="dphoto" src="${p}" onclick="openEdFromBlock('${b.id}','${rec.date}',${pi},event)">`).join('')}</div>`:''}
-          <button class="addpbtn" onclick="openDiary('${b.id}','${rec.date}',event)">+ ?ъ쭊/硫붾え 異붽?</button>
+          <button class="addpbtn" onclick="openDiary('${b.id}','${rec.date}',event)">+ 사진/메모 추가</button>
         </div>
       </div>`;
     }).join('');
     return`<div class="hcard">
       <div class="hch" onclick="togH(this)">
-        <div class="hdb"><div class="hdn">${d.getDate()}</div><div class="hdm">${d.getMonth()+1}??/div></div>
-        <div class="hdi"><div class="hdd">${cats.map(c=>`<div class="hddot" style="background:${catCol(c)}"></div>`).join('')}</div><div class="hdmeta">${meta||'湲곕줉 ?놁쓬'}</div></div>
+        <div class="hdb"><div class="hdn">${d.getDate()}</div><div class="hdm">${d.getMonth()+1}월</div></div>
+        <div class="hdi"><div class="hdd">${cats.map(c=>`<div class="hddot" style="background:${catCol(c)}"></div>`).join('')}</div><div class="hdmeta">${meta||'기록 없음'}</div></div>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </div>
       <div class="dblocks" style="display:none">${bHTML}</div>
