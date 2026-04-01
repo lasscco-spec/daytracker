@@ -325,11 +325,11 @@ var(--bg)}
 
 <!-- TAB BAR -->
 <div class="tab-bar">
-  <button class="tb on" onclick="go('today',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>?ㅻ뒛</button>
-  <button class="tb" onclick="go('timeline',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>??꾨씪??/button>
-  <button class="tb" onclick="go('meals',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>?앹궗</button>
-  <button class="tb" onclick="go('stats',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>?듦퀎</button>
-  <button class="tb" onclick="go('history',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>湲곕줉</button>
+  <button class="tb on" onclick="go('today',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>오늘</button>
+  <button class="tb" onclick="go('timeline',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>타임라인</button>
+  <button class="tb" onclick="go('meals',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>식사</button>
+  <button class="tb" onclick="go('stats',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>통계</button>
+  <button class="tb" onclick="go('history',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>기록</button>
 </div>
 </div>
 
@@ -337,26 +337,26 @@ var(--bg)}
 <!-- Activity -->
 <div class="ov" id="act-ov" onclick="cls('act-ov')">
   <div class="sheet" onclick="event.stopPropagation()">
-    <div class="sh"></div><div class="stitle" id="ast">?쒕룞 ?좏깮</div>
+    <div class="sh"></div><div class="stitle" id="ast">활동 선택</div>
     <div class="cgrid" id="acg"></div>
-    <div class="fg" id="acust" style="display:none"><label class="fl">?쒕룞 ?대쫫</label><input class="fi" id="acin" placeholder="?? ?낆꽌, 寃뚯엫..." maxlength="20"></div>
-    <button class="btn bp" id="acbtn" onclick="confirmAct()">?쒖옉?섍린</button>
+    <div class="fg" id="acust" style="display:none"><label class="fl">활동 이름</label><input class="fi" id="acin" placeholder="예: 독서, 게임, 산책..." maxlength="20"></div>
+    <button class="btn bp" id="acbtn" onclick="confirmAct()">시작하기</button>
   </div>
 </div>
 
 <!-- Edit block -->
 <div class="ov" id="edit-ov" onclick="cls('edit-ov')">
   <div class="sheet" onclick="event.stopPropagation()">
-    <div class="sh"></div><div class="stitle">?쒕룞 ?섏젙</div>
+    <div class="sh"></div><div class="stitle">활동 수정</div>
     <div class="cgrid" id="ecg"></div>
-    <div class="fg"><label class="fl">?쒕룞 ?대쫫 (?좏깮)</label><input class="fi" id="ecl" placeholder="吏곸젒 ?낅젰"></div>
+    <div class="fg"><label class="fl">활동 이름 (선택)</label><input class="fi" id="ecl" placeholder="직접 입력"></div>
     <div class="tr">
-      <div class="fg"><label class="fl">?쒖옉</label><input class="fi" type="time" id="est"></div>
-      <div class="fg"><label class="fl">醫낅즺</label><input class="fi" type="time" id="een"></div>
+      <div class="fg"><label class="fl">시작</label><input class="fi" type="time" id="est"></div>
+      <div class="fg"><label class="fl">종료</label><input class="fi" type="time" id="een"></div>
     </div>
-    <div class="fg"><label class="fl">硫붾え</label><input class="fi" id="enote" placeholder="?댁슜"></div>
-    <button class="btn bp" style="margin-bottom:10px" onclick="saveEdit()">???/button>
-    <button class="btn bd2" onclick="delBlock()">??젣</button>
+    <div class="fg"><label class="fl">메모</label><input class="fi" id="enote" placeholder="내용"></div>
+    <button class="btn bp" style="margin-bottom:10px" onclick="saveEdit()">저장</button>
+    <button class="btn bd2" onclick="delBlock()">삭제</button>
   </div>
 </div>
 
@@ -461,7 +461,7 @@ var(--bg)}
 
 <script>
 // ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??DATA ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??const DCOLS={sleep:'#7B9CFF',study:'#5EC4A8',exercise:'#FF7B5E',meal:'#FFB84D',rest:'#B8A9F5',work:'#4DA8D4',social:'#F57B9C',custom:'#999999'};
-const CMETA={sleep:{l:'?섎㈃',i:'?뙔'},study:{l:'怨듬?',i:'?뱰'},exercise:{l:'?대룞',i:'?룂'},meal:{l:'?앹궗',i:'?띂'},rest:{l:'?댁떇',i:'?뙼'},work:{l:'?낅Т',i:'?뮲'},social:{l:'?쎌냽',i:'?뫁'},custom:{l:'湲고?',i:'??}};
+const CMETA={sleep:{l:'수면',i:'🌙'},study:{l:'공부',i:'📘'},exercise:{l:'운동',i:'🏃'},meal:{l:'식사',i:'🍽'},rest:{l:'휴식',i:'🛋'},work:{l:'업무',i:'💼'},social:{l:'약속',i:'🤝'},custom:{l:'기타',i:'✨'}};
 const PAL=['#FF6B6B','#FF9F43','#FECA57','#48DBFB','#1DD1A1','#54A0FF','#5F27CD','#FF9FF3','#7B9CFF','#5EC4A8','#FF7B5E','#FFB84D','#B8A9F5','#4DA8D4','#F57B9C','#AAAAAA','#FFFFFF','#000000'];
 const STKS=['?삃','?쁻','?뵦','?뮞','?샂','?뜒','?렦','?ㅿ툘','狩?,'?뙚','?몡','?쨺','?삇','?Ⅳ','?뱴','?룍截?,'??,'?뙔','?截?,'?렞'];
 
