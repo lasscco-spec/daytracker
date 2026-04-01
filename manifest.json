@@ -1,14 +1,19 @@
 {
-  "name": "DayTracker",
+  "name": "DayTracker Clean",
   "short_name": "DayTracker",
-  "description": "나의 하루 기록 앱",
-  "start_url": "/",
+  "description": "식사 기록과 하루 흐름을 간단하게 관리하는 PWA",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#0a0a0a",
+  "background_color": "#0b0b0d",
+  "theme_color": "#0b0b0d",
   "orientation": "portrait",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+    {
+      "src": "1.png",
+      "sizes": "1188x1188",
+      "type": "image/png",
+      "purpose": "any"
+    }
   ]
 }
