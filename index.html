@@ -73,21 +73,40 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .empty .ei{font-size:48px;margin-bottom:12px}
 
 /* TODAY */
-.hero{padding:56px 20px 20px;background:linear-gradient(180deg,#111 0%,var(--bg) 100%)}
+.hero{padding:56px 20px 18px;background:
+linear-gradient(180deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,0) 100%),
+radial-gradient(circle at top right,rgba(255,255,255,.08),transparent 42%),
+var(--bg)}
 .hdate{font-size:13px;color:var(--tx2);font-weight:500}
-.hgreet{font-size:28px;font-weight:700;letter-spacing:-.5px;margin-top:4px}
-.wrow{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);margin:0 20px 16px}
-.wval{font-size:20px;font-weight:700;font-family:'DM Mono',monospace}
-.abc{margin:0 20px 16px;border-radius:var(--r);padding:16px;display:none}
+.hgreet{font-size:30px;font-weight:700;letter-spacing:-.6px;margin-top:6px}
+.today-wrap{padding:0 20px 20px}
+.wrow{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:linear-gradient(180deg,#171717 0%,#121212 100%);border:1px solid var(--bd);border-radius:18px;margin-bottom:14px;gap:12px}
+.wake-copy{display:flex;flex-direction:column;gap:4px}
+.wake-label{font-size:13px;color:var(--tx2);font-weight:500}
+.wval{font-size:22px;font-weight:700;font-family:'DM Mono',monospace}
+.abc{margin-bottom:16px;border-radius:22px;padding:18px;display:none;position:relative;overflow:hidden}
 .abc.on{display:block}
-.srow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 20px 20px}
-.sp{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px 10px;text-align:center}
+.abc.on::after{content:'';position:absolute;inset:auto -40px -40px auto;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.06)}
+.active-top{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+.active-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.active-copy{flex:1;min-width:0}
+.active-kicker{font-size:12px;color:rgba(255,255,255,.72);margin-bottom:4px}
+.active-name{font-size:22px;font-weight:700;line-height:1.15}
+.active-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;position:relative;z-index:1}
+.active-pill{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.09);font-size:12px;color:rgba(255,255,255,.88);font-family:'DM Mono',monospace}
+.srow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
+.sp{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:14px 10px;text-align:center}
 .spi{font-size:18px;margin-bottom:5px}.spv{font-size:18px;font-weight:700}.spl{font-size:11px;color:var(--tx2);margin-top:2px}
-.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 20px;margin-bottom:20px}
-.qbtn{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:14px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:background .15s,transform .1s;-webkit-user-select:none}
+.today-sec{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.today-title{font-size:13px;font-weight:700;color:var(--tx2);letter-spacing:.08em;text-transform:uppercase}
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.qbtn{background:linear-gradient(180deg,#171717 0%,#121212 100%);border:1px solid var(--bd);border-radius:16px;padding:14px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background .15s,transform .1s;-webkit-user-select:none}
 .qbtn:active{transform:scale(.97);background:var(--sf2)}
-.qi{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.qi{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
 .ql{font-size:14px;font-weight:600;flex:1}
+.qsub{font-size:11px;color:var(--tx2);margin-top:2px}
+.today-actions{margin-bottom:18px}
+.today-list-title{font-size:13px;font-weight:700;color:var(--tx2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
 
 /* TIMELINE */
 .dstrip{display:flex;gap:6px;overflow-x:auto;padding:0 20px 16px;scrollbar-width:none}
@@ -201,30 +220,39 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 <div id="today-page" class="page active">
   <div class="hero">
     <div class="hdate" id="td"></div>
-    <div class="hgreet" id="tg">?ㅻ뒛</div>
+    <div class="hgreet" id="tg">오늘</div>
   </div>
-  <div class="wrow" id="wr"></div>
-  <div class="abc" id="abc">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-      <div id="abi" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px"></div>
-      <div><div id="abl" style="font-size:17px;font-weight:600"></div><div id="abe" style="font-size:13px;color:var(--tx2);font-family:'DM Mono',monospace">00:00</div></div>
+  <div class="today-wrap">
+    <div class="wrow" id="wr"></div>
+    <div class="abc" id="abc">
+      <div class="active-top">
+        <div id="abi" class="active-icon"></div>
+        <div class="active-copy">
+          <div class="active-kicker">지금 하고 있는 활동</div>
+          <div id="abl" class="active-name"></div>
+        </div>
+      </div>
+      <div class="active-meta">
+        <div class="active-pill" id="abe">00:00</div>
+        <div class="active-pill" id="abs">시작 00:00</div>
+      </div>
+      <button class="btn bd2" style="width:100%;margin-top:16px;position:relative;z-index:1" onclick="stopAct()">활동 종료</button>
     </div>
-    <button class="btn bd2" style="width:100%" onclick="stopAct()">??醫낅즺</button>
+    <div class="srow">
+      <div class="sp"><div class="spi">🌙</div><div class="spv" id="ss">-</div><div class="spl">수면</div></div>
+      <div class="sp"><div class="spi">🍽</div><div class="spv" id="sm">0회</div><div class="spl">식사</div></div>
+      <div class="sp"><div class="spi">⚡</div><div class="spv" id="sa">0건</div><div class="spl">활동</div></div>
+    </div>
+    <div class="today-sec">
+      <div class="today-title">빠른 시작</div>
+      <button class="btn bo bsm" onclick="openQE()" style="font-size:12px">편집</button>
+    </div>
+    <div class="qgrid" id="qg"></div>
+    <div class="today-actions">
+      <button class="btn bo" onclick="openManual()" style="font-size:13px;color:var(--tx2)">빈 시간 직접 기록하기</button>
+    </div>
+    <div class="today-list-title" id="blt" style="display:none">오늘의 활동</div>
   </div>
-  <div class="srow">
-    <div class="sp"><div class="spi">?뙔</div><div class="spv" id="ss">-</div><div class="spl">?섎㈃</div></div>
-    <div class="sp"><div class="spi">?띂</div><div class="spv" id="sm">0??/div><div class="spl">?앹궗</div></div>
-    <div class="sp"><div class="spi">??/div><div class="spv" id="sa">0嫄?/div><div class="spl">?쒕룞</div></div>
-  </div>
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 20px;margin-bottom:10px">
-    <div style="font-size:13px;font-weight:600;color:var(--tx2);letter-spacing:.5px;text-transform:uppercase">鍮좊Ⅸ ?쒖옉</div>
-    <button class="btn bo bsm" onclick="openQE()" style="font-size:12px">?몄쭛</button>
-  </div>
-  <div class="qgrid" id="qg"></div>
-  <div style="padding:0 20px;margin-bottom:20px">
-    <button class="btn bo" onclick="openManual()" style="font-size:13px;color:var(--tx2)">?륅툘 怨듬갚 ?쒓컙 梨꾩슦湲?/button>
-  </div>
-  <div style="font-size:13px;font-weight:600;color:var(--tx2);letter-spacing:.5px;text-transform:uppercase;padding:0 20px;margin-bottom:10px" id="blt" style="display:none">?ㅻ뒛???쒕룞</div>
   <div id="bl"></div>
 </div>
 
@@ -448,7 +476,7 @@ const saveRec=r=>{const a=ld('recs',{});a[r.date]=r;sv('recs',a)};
 const allRecs=()=>Object.values(ld('recs',{})).sort((a,b)=>b.date.localeCompare(a.date));
 const getAct=()=>ld('act',null);
 const saveAct=b=>sv('act',b);
-const getQB=()=>ld('qb',[{c:'study',l:''},{c:'work',l:''},{c:'exercise',l:''},{c:'rest',l:''},{c:'meal',l:''},{c:'sleep',l:''}]);
+const getQB=()=>ld('qb',[{c:'study',l:''},{c:'exercise',l:''},{c:'work',l:''},{c:'rest',l:''},{c:'meal',l:''}]);
 const saveQB=v=>sv('qb',v);
 const f2=n=>String(n).padStart(2,'0');
 const ft=d=>`${f2(d.getHours())}:${f2(d.getMinutes())}`;
@@ -469,76 +497,80 @@ let edLayers=[],edTool='text',edCol='#ffffff',edBase=null,edDrawing=false,edPath
   if(name==='today')rToday();if(name==='timeline')rTL();if(name==='meals')rMeals();if(name==='stats')rStats();if(name==='history')rHist();
 }
 
-// ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??TODAY ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??function rToday(){
+// TODAY
+function rToday(){
   const rec=getRec(),act=getAct(),now=new Date();
-  const dn=['??,'??,'??,'??,'紐?,'湲?,'??];
-  document.getElementById('td').textContent=`${now.getMonth()+1}??${now.getDate()}??${dn[now.getDay()]}?붿씪`;
-  const h=now.getHours();
-  document.getElementById('tg').textContent=h<12?'醫뗭? ?꾩묠?댁뿉???截?:h<18?'醫뗭? ?ㅽ썑?덉슂 ?뙟':'醫뗭? ??곸씠?먯슂 ?뙔';
-  // wake
+  const dn=['일','월','화','수','목','금','토'];
+  document.getElementById('td').textContent=`${now.getMonth()+1}월 ${now.getDate()}일 ${dn[now.getDay()]}요일`;
+  document.getElementById('tg').textContent=now.getHours()<12?'오늘을 차분하게 시작해볼까요':'지금 흐름을 이어가볼까요';
+
   const wr=document.getElementById('wr');
-  if(rec.wake){const t=new Date(rec.wake);wr.innerHTML=`<div style="font-size:13px;color:var(--tx2)">湲곗긽 ?쒓컙</div><div class="wval">${f2(t.getHours())}:${f2(t.getMinutes())}</div>`;}
-  else wr.innerHTML=`<div><div style="font-size:13px;color:var(--tx2)">?꾩쭅 湲곗긽 ?꾩씠?먯슂</div></div><button class="btn bo bsm" onclick="recWake()">??湲곗긽 湲곕줉</button>`;
-  // active
+  if(rec.wake){
+    const t=new Date(rec.wake);
+    wr.innerHTML=`<div class="wake-copy"><div class="wake-label">기상 시간</div><div class="wval">${f2(t.getHours())}:${f2(t.getMinutes())}</div></div><button class="btn bo bsm" onclick="recWake()">다시 기록</button>`;
+  } else {
+    wr.innerHTML=`<div class="wake-copy"><div class="wake-label">아직 기상 기록이 없어요</div><div style="font-size:18px;font-weight:700">오늘의 시작을 남겨보세요</div></div><button class="btn bo bsm" onclick="recWake()">⏰ 기상 기록</button>`;
+  }
+
   const abc=document.getElementById('abc');
   if(act){
-    const c=cat(act.category);abc.classList.add('on');abc.style.background=c.color+'18';abc.style.border=`1px solid ${c.color}44`;
-    document.getElementById('abi').textContent=c.i;document.getElementById('abi').style.background=c.color+'30';
+    const c=cat(act.category);
+    abc.classList.add('on');
+    abc.style.background=`linear-gradient(180deg, ${c.color}33 0%, ${c.color}18 100%)`;
+    abc.style.border=`1px solid ${c.color}55`;
+    document.getElementById('abi').textContent=c.i;
+    document.getElementById('abi').style.background=c.color+'33';
     document.getElementById('abl').textContent=act.customLabel||c.l;
-    updEl(act.startTime);clearInterval(etimer);etimer=setInterval(()=>updEl(act.startTime),1000);
-  } else {abc.classList.remove('on');clearInterval(etimer);}
-  // summary
+    document.getElementById('abs').textContent=`시작 ${ft(new Date(act.startTime))}`;
+    updEl(act.startTime);
+    clearInterval(etimer);
+    etimer=setInterval(()=>updEl(act.startTime),1000);
+  } else {
+    abc.classList.remove('on');
+    clearInterval(etimer);
+  }
+
   const sl=rec.blocks.filter(b=>b.category==='sleep').reduce((s,b)=>s+dur(b),0);
   const ml=rec.blocks.filter(b=>b.category==='meal');
   document.getElementById('ss').textContent=sl>0?dTxt(sl):'-';
-  document.getElementById('sm').textContent=ml.length+'??;
-  document.getElementById('sa').textContent=rec.blocks.length+'嫄?;
+  document.getElementById('sm').textContent=`${ml.length}회`;
+  document.getElementById('sa').textContent=`${rec.blocks.length}건`;
   rQGrid();
-  // blocks
+
   const bl=document.getElementById('bl'),blt=document.getElementById('blt');
   const sorted=[...rec.blocks].sort((a,b)=>new Date(b.startTime)-new Date(a.startTime));
   blt.style.display=sorted.length>0?'block':'none';
   bl.innerHTML=sorted.map(b=>bRowHTML(b,dk())).join('');
 }
 
-function bRowHTML(b,d){
-  const c=cat(b.category);const s=new Date(b.startTime),e=b.endTime?new Date(b.endTime):null;
-  const ts=`${f2(s.getHours())}:${f2(s.getMinutes())}${e?' ??'+f2(e.getHours())+':'+f2(e.getMinutes()):''}`;
-  const badge=!b.endTime?`<span class="rbadge" style="background:${c.color}22;color:${c.color}">吏꾪뻾以?/span>`:'';
-  return `<div class="brow" onclick="openEdit('${b.id}','${d}')">
-    <div class="bdot" style="background:${c.color}"></div>
-    <div class="bi"><div class="bn">${c.i} ${b.customLabel||c.l}${badge}</div><div class="bt">${ts}${b.note?' 쨌 '+b.note:''}</div></div>
-    <div class="bdur">${dTxt(dur(b))}</div>
-  </div>`;
-}
-
 function rQGrid(){
   const qbs=getQB();
   document.getElementById('qg').innerHTML=qbs.map(q=>{
-    const c=cat(q.c);return`<div class="qbtn" onclick="startAct('${q.c}','${q.l||''}')">
-      <div class="qi" style="background:${c.color}22">${c.i}</div>
-      <div class="ql">${q.l||c.l}</div>
-    </div>`;
-  }).join('')+`<div class="qbtn" onclick="openActSh()"><div class="qi" style="background:#fff1">竊?/div><div class="ql">吏곸젒 ?좏깮</div></div>`;
+    const c=cat(q.c);
+    const label=q.l||c.l;
+    const sub=q.l?'직접 추가한 활동':'기본 활동';
+    return`<div class="qbtn" onclick="startAct('${q.c}','${q.l||''}')"><div class="qi" style="background:${c.color}22">${c.i}</div><div style="flex:1;min-width:0"><div class="ql">${label}</div><div class="qsub">${sub}</div></div></div>`;
+  }).join('')+`<div class="qbtn" onclick="openQE()"><div class="qi" style="background:#fff1">＋</div><div style="flex:1;min-width:0"><div class="ql">활동 추가</div><div class="qsub">편집에서 직접 이름 입력</div></div></div>`;
 }
 
 function updEl(st){
   const s=(Date.now()-new Date(st))/1000,h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=Math.floor(s%60);
   document.getElementById('abe').textContent=h>0?`${h}:${f2(m)}:${f2(sec)}`:`${f2(m)}:${f2(sec)}`;
 }
-function recWake(){const r=getRec();r.wake=new Date().toISOString();saveRec(r);rToday();toast('湲곗긽 湲곕줉 ?꾨즺 ?截?)}
+function recWake(){const r=getRec();r.wake=new Date().toISOString();saveRec(r);rToday();toast('기상 기록 완료')}
 function startAct(c,lbl=''){
   const act=getAct();if(act)stopAct(false);
   const b={id:Date.now().toString(),category:c,customLabel:lbl,startTime:new Date().toISOString(),endTime:null,note:'',photos:[]};
-  saveAct(b);const r=getRec();r.blocks.push(b);saveRec(r);rToday();cls('act-ov');toast(`${cat(c).l} ?쒖옉 ??);
+  saveAct(b);const r=getRec();r.blocks.push(b);saveRec(r);rToday();cls('act-ov');toast(`${lbl||cat(c).l} 시작`);
 }
 function stopAct(n=true){
   const act=getAct();if(!act)return;act.endTime=new Date().toISOString();saveAct(null);
   const r=getRec();const i=r.blocks.findIndex(b=>b.id===act.id);if(i>-1)r.blocks[i]=act;saveRec(r);
-  rToday();if(n)toast('?쒕룞 醫낅즺 ??);
+  rToday();if(n)toast('활동 종료');
 }
 
-// ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??EDIT BLOCK ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??function openEdit(bid,d){
+// EDIT BLOCK
+function openEdit(bid,d){
   ebId=bid;ebDk=d;const r=getRec(d);const b=r.blocks.find(x=>x.id===bid);if(!b)return;
   eCat=b.category;rCatGrid('ecg',c=>{eCat=c},eCat);
   document.getElementById('ecl').value=b.customLabel||'';
@@ -555,19 +587,20 @@ function saveEdit(){
   if(ss){const[sh,sm]=ss.split(':').map(Number);const base=new Date(ebDk+'T00:00:00');base.setHours(sh,sm,0,0);b.startTime=base.toISOString();}
   if(es){const[eh,em]=es.split(':').map(Number);const base=new Date(ebDk+'T00:00:00');base.setHours(eh,em,0,0);b.endTime=base.toISOString();}
   const act=getAct();if(act&&act.id===ebId)saveAct(b);
-  saveRec(r);cls('edit-ov');rToday();rHist();toast('?섏젙 ?꾨즺 ??);
+  saveRec(r);cls('edit-ov');rToday();rHist();toast('수정 완료');
 }
 function delBlock(){
-  if(!confirm('??젣?좉퉴??'))return;
+  if(!confirm('삭제할까요?'))return;
   const r=getRec(ebDk);r.blocks=r.blocks.filter(b=>b.id!==ebId);saveRec(r);
   const act=getAct();if(act&&act.id===ebId)saveAct(null);
-  cls('edit-ov');rToday();rHist();toast('??젣??);
+  cls('edit-ov');rToday();rHist();toast('삭제 완료');
 }
 
-// ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??ACT SHEET ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??function openActSh(){
+// ACT SHEET
+function openActSh(){
   sCat='study';
-  document.getElementById('ast').textContent='?쒕룞 ?좏깮';
-  document.getElementById('acbtn').textContent='?쒖옉?섍린';
+  document.getElementById('ast').textContent='활동 선택';
+  document.getElementById('acbtn').textContent='시작하기';
   document.getElementById('acbtn').onclick=confirmAct;
   rCatGrid('acg',c=>{sCat=c;document.getElementById('acust').style.display=c==='custom'?'block':'none'},sCat);
   document.getElementById('acust').style.display='none';document.getElementById('acin').value='';
@@ -575,48 +608,48 @@ function delBlock(){
 }
 function confirmAct(){
   const l=sCat==='custom'?document.getElementById('acin').value.trim():'';
-  if(sCat==='custom'&&!l){toast('?쒕룞 ?대쫫???낅젰?댁＜?몄슂');return;}
+  if(sCat==='custom'&&!l){toast('활동 이름을 입력해주세요');return;}
   startAct(sCat,l);
 }
 
-// ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??QUICK EDIT ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??function openQE(){rQEList();document.getElementById('qe-ov').classList.add('open')}
+// QUICK EDIT
+function openQE(){rQEList();document.getElementById('qe-ov').classList.add('open')}
 function rQEList(){
   const qbs=getQB();
   document.getElementById('qelist').innerHTML=qbs.map((q,i)=>{
-    const c=cat(q.c);return`<div style="display:flex;align-items:center;gap:10px;background:var(--sf2);padding:12px;border-radius:10px;border:1px solid var(--bd)">
-      <div style="font-size:20px">${c.i}</div><div style="flex:1;font-size:14px;font-weight:500">${q.l||c.l}</div>
-      <button onclick="editQB(${i})" style="background:none;border:none;color:var(--tx2);font-size:13px;cursor:pointer;padding:4px 8px">?섏젙</button>
-      <button onclick="delQB(${i})" style="background:none;border:none;color:#FF453A;font-size:13px;cursor:pointer;padding:4px 8px">??젣</button>
-    </div>`;
+    const c=cat(q.c);return`<div style="display:flex;align-items:center;gap:10px;background:var(--sf2);padding:12px;border-radius:10px;border:1px solid var(--bd)"><div style="font-size:20px">${c.i}</div><div style="flex:1;font-size:14px;font-weight:500">${q.l||c.l}</div><button onclick="editQB(${i})" style="background:none;border:none;color:var(--tx2);font-size:13px;cursor:pointer;padding:4px 8px">수정</button><button onclick="delQB(${i})" style="background:none;border:none;color:#FF453A;font-size:13px;cursor:pointer;padding:4px 8px">삭제</button></div>`;
   }).join('');
 }
 function delQB(i){const qbs=getQB();qbs.splice(i,1);saveQB(qbs);rQEList();rQGrid()}
 function editQB(i){
   const qbs=getQB();const q=qbs[i];sCat=q.c;
-  document.getElementById('ast').textContent='鍮좊Ⅸ ?쒖옉 ?섏젙';
-  document.getElementById('acbtn').textContent='???;
+  document.getElementById('ast').textContent='빠른 시작 수정';
+  document.getElementById('acbtn').textContent='저장';
   document.getElementById('acbtn').onclick=()=>{
-    const l=sCat==='custom'?document.getElementById('acin').value.trim():'';
-    qbs[i]={c:sCat,l};saveQB(qbs);cls('act-ov');rQEList();rQGrid();toast('?섏젙??);
+    const l=document.getElementById('acin').value.trim();
+    if(sCat==='custom'&&!l){toast('활동 이름을 입력해주세요');return;}
+    qbs[i]={c:sCat,l:sCat==='custom'?l:''};saveQB(qbs);cls('act-ov');rQEList();rQGrid();toast('수정 완료');
   };
   rCatGrid('acg',c=>{sCat=c;document.getElementById('acust').style.display=c==='custom'?'block':'none'},sCat);
-  document.getElementById('acust').style.display=q.l?'block':'none';document.getElementById('acin').value=q.l||'';
+  document.getElementById('acust').style.display=q.c==='custom'?'block':'none';document.getElementById('acin').value=q.l||'';
   document.getElementById('act-ov').classList.add('open');
 }
 function addQSlot(){
-  sCat='study';
-  document.getElementById('ast').textContent='鍮좊Ⅸ ?쒖옉 異붽?';
-  document.getElementById('acbtn').textContent='異붽?';
+  sCat='custom';
+  document.getElementById('ast').textContent='빠른 시작 추가';
+  document.getElementById('acbtn').textContent='추가';
   document.getElementById('acbtn').onclick=()=>{
-    const qbs=getQB();const l=sCat==='custom'?document.getElementById('acin').value.trim():'';
-    qbs.push({c:sCat,l});saveQB(qbs);cls('act-ov');rQEList();rQGrid();toast('異붽???);
+    const qbs=getQB();const l=document.getElementById('acin').value.trim();
+    if(!l){toast('활동 이름을 입력해주세요');return;}
+    qbs.push({c:'custom',l});saveQB(qbs);cls('act-ov');rQEList();rQGrid();toast('활동 추가 완료');
   };
-  rCatGrid('acg',c=>{sCat=c},sCat);
-  document.getElementById('acust').style.display='none';document.getElementById('acin').value='';
+  rCatGrid('acg',c=>{sCat=c;document.getElementById('acust').style.display=c==='custom'?'block':'none'},sCat);
+  document.getElementById('acust').style.display='block';document.getElementById('acin').value='';
   document.getElementById('act-ov').classList.add('open');
 }
 
-// ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??MANUAL ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??function openManual(){
+// MANUAL
+function openManual(){
   mCat='rest';
   rCatGrid('mcg',c=>{mCat=c;document.getElementById('mcust').style.display=c==='custom'?'block':'none'},mCat);
   document.getElementById('mcust').style.display='none';
