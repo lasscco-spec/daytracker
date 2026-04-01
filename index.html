@@ -383,24 +383,24 @@ var(--bg)}
 <!-- Manual -->
 <div class="ov" id="man-ov" onclick="cls('man-ov')">
   <div class="sheet" onclick="event.stopPropagation()">
-    <div class="sh"></div><div class="stitle">怨듬갚 ?쒓컙 梨꾩슦湲?/div>
+    <div class="sh"></div><div class="stitle">빈 시간 기록하기</div>
     <div class="cgrid" id="mcg"></div>
-    <div class="fg" id="mcust" style="display:none"><label class="fl">?쒕룞 ?대쫫</label><input class="fi" id="mcin" placeholder="?? ?낆꽌..."></div>
+    <div class="fg" id="mcust" style="display:none"><label class="fl">활동 이름</label><input class="fi" id="mcin" placeholder="예: 독서..."></div>
     <div class="tr">
-      <div class="fg"><label class="fl">?쒖옉</label><input class="fi" type="time" id="mst"></div>
-      <div class="fg"><label class="fl">醫낅즺</label><input class="fi" type="time" id="men"></div>
+      <div class="fg"><label class="fl">시작</label><input class="fi" type="time" id="mst"></div>
+      <div class="fg"><label class="fl">종료</label><input class="fi" type="time" id="men"></div>
     </div>
-    <div class="fg"><label class="fl">硫붾え (?좏깮)</label><input class="fi" id="mnote2" placeholder="?댁슜"></div>
-    <button class="btn bp" onclick="saveMan()">???/button>
+    <div class="fg"><label class="fl">메모 (선택)</label><input class="fi" id="mnote2" placeholder="내용"></div>
+    <button class="btn bp" onclick="saveMan()">저장</button>
   </div>
 </div>
 
 <!-- Quick edit -->
 <div class="ov" id="qe-ov" onclick="cls('qe-ov')">
   <div class="sheet" onclick="event.stopPropagation()">
-    <div class="sh"></div><div class="stitle">鍮좊Ⅸ ?쒖옉 ?몄쭛</div>
+    <div class="sh"></div><div class="stitle">빠른 시작 편집</div>
     <div id="qelist" style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px"></div>
-    <button class="btn bo" onclick="addQSlot()">+ 異붽?</button>
+    <button class="btn bo" onclick="addQSlot()">+ 추가</button>
   </div>
 </div>
 
@@ -543,6 +543,19 @@ function rToday(){
   bl.innerHTML=sorted.map(b=>bRowHTML(b,dk())).join('');
 }
 
+function bRowHTML(b,d){
+  const c=cat(b.category);
+  const s=new Date(b.startTime);
+  const e=b.endTime?new Date(b.endTime):null;
+  const ts=`${f2(s.getHours())}:${f2(s.getMinutes())}${e?' - '+f2(e.getHours())+':'+f2(e.getMinutes()):''}`;
+  const badge=!b.endTime?`<span class="rbadge" style="background:${c.color}22;color:${c.color}">진행 중</span>`:'';
+  return `<div class="brow" onclick="openEdit('${b.id}','${d}')">
+    <div class="bdot" style="background:${c.color}"></div>
+    <div class="bi"><div class="bn">${c.i} ${b.customLabel||c.l}${badge}</div><div class="bt">${ts}${b.note?' · '+b.note:''}</div></div>
+    <div class="bdur">${dTxt(dur(b))}</div>
+  </div>`;
+}
+
 function rQGrid(){
   const qbs=getQB();
   document.getElementById('qg').innerHTML=qbs.map(q=>{
@@ -660,16 +673,16 @@ function openManual(){
 }
 function saveMan(){
   const ss=document.getElementById('mst').value,es=document.getElementById('men').value;
-  if(!ss||!es){toast('?쒓컙???낅젰?댁＜?몄슂');return;}
+  if(!ss||!es){toast('시간을 입력해주세요');return;}
   const[sh,sm]=ss.split(':').map(Number),[eh,em]=es.split(':').map(Number);
   const today=new Date();
   const s=new Date(today.getFullYear(),today.getMonth(),today.getDate(),sh,sm);
   const e=new Date(today.getFullYear(),today.getMonth(),today.getDate(),eh,em);
-  if(e<=s){toast('醫낅즺媛 ?쒖옉蹂대떎 ??뼱???댁슂');return;}
+  if(e<=s){toast('종료 시간이 시작보다 늦어야 해요');return;}
   const l=mCat==='custom'?document.getElementById('mcin').value.trim():'';
   const b={id:Date.now().toString(),category:mCat,customLabel:l,startTime:s.toISOString(),endTime:e.toISOString(),note:document.getElementById('mnote2').value.trim(),photos:[]};
   const r=getRec();r.blocks.push(b);r.blocks.sort((a,b)=>new Date(a.startTime)-new Date(b.startTime));saveRec(r);
-  cls('man-ov');rToday();toast('湲곕줉 異붽? ??);
+  cls('man-ov');rToday();toast('기록 추가 완료');
 }
 
 // ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??MEAL ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧??function openMeal(){
