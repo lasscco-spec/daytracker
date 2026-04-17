@@ -28,7 +28,7 @@
     .char-gauges-bottom .cs-label{color:#dce3ea;min-width:26px;font-size:10px;text-shadow:0 1px 3px rgba(0,0,0,.7)}
     .char-gauges-bottom .cs-bar{background:rgba(9,12,13,.55)}
     /* 기상/취침 행 */
-    .char-wake-sleep-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px}
+    .char-wake-sleep-row{display:flex;gap:10px;flex-wrap:nowrap;margin-bottom:6px;align-items:center}
     /* 타임로그 레이아웃: 원 좌측, 범례 우측 */
     .c-timeline{background:#151518;border:1px solid #2a2a31;border-radius:18px;padding:16px;margin-bottom:14px;display:flex;align-items:flex-start;gap:12px;box-shadow:var(--shadow)}
     .c-tl-left{flex-shrink:0}
@@ -70,23 +70,16 @@
               <span class="char-level" id="charLevel">Lv.1</span>
             </div>
             <img class="char-img" src="./char.webp" alt="DayTracker character" />
-            <!-- 캐릭터 하단: 집중/활력 게이지 -->
-            <div class="char-gauges-bottom">
-              <div class="char-stat"><span class="cs-label">집중</span><div class="cs-bar"><div class="cs-fill" id="focusFill" style="width:0%;background:#5c6bc0"></div></div></div>
-              <div class="char-stat"><span class="cs-label">활력</span><div class="cs-bar"><div class="cs-fill" id="energyFill" style="width:0%;background:#4caf50"></div></div></div>
-            </div>
             <div class="char-floor"></div>
           </div>
-          <!-- 오른쪽: 기상/취침 + 빠른활동 + 현재활동 -->
+          <!-- 오른쪽: 기상/취침 + 현재활동 + 빠른활동 -->
           <div class="char-right">
-            <!-- 기상/취침 버튼 (맨 위) -->
+            <!-- 기상/취침 버튼 (맨 위, 가로 나란히) -->
             <div class="char-wake-sleep-row">
               <div class="hero-btn-row"><button class="item-btn wake" id="btnWake">기상</button><span class="hero-btn-time" id="wakeTime">--:--</span></div>
               <div class="hero-btn-row"><button class="item-btn sleep" id="btnSleep">취침</button><span class="hero-btn-time" id="sleepTime">--:--</span></div>
             </div>
-            <!-- 빠른 활동 버튼들 -->
-            <div class="quick-strip" id="quickStrip"></div>
-            <!-- 현재 활동 상태 -->
+            <!-- 현재 활동 상태 (기상/취침 바로 아래) -->
             <div class="now-section">
               <div class="now-row1">
                 <div class="now-title">Now</div>
@@ -100,10 +93,17 @@
                 <div class="now-meta" id="activityStart">새 활동 시작</div>
               </div>
             </div>
+            <!-- 빠른 활동 버튼들 (now 아래) -->
+            <div class="quick-strip" id="quickStrip"></div>
             <div class="today-actions" id="todayActionWrap"></div>
           </div>
         </div>
         <div class="char-info">
+          <!-- 집중/활력 게이지 (캐릭터 아래, 겹침 없이) -->
+          <div class="char-stats" style="padding:8px 0 4px">
+            <div class="char-stat"><span class="cs-label">집중</span><div class="cs-bar"><div class="cs-fill" id="focusFill" style="width:0%;background:#5c6bc0"></div></div></div>
+            <div class="char-stat"><span class="cs-label">활력</span><div class="cs-bar"><div class="cs-fill" id="energyFill" style="width:0%;background:#4caf50"></div></div></div>
+          </div>
           <div class="char-msg" id="charMsg">첫 활동을 시작해서 오늘의 흐름을 만들어보세요.</div>
         </div>
       </div>
@@ -116,11 +116,12 @@
             <span class="c-tl-title">타임로그</span>
             <button class="c-tl-edit-btn" id="manualAddBtnInline">✏️ 편집</button>
           </div>
+          <div class="c-tl-wake-sleep" id="tlWakeSleep" style="display:flex;gap:10px;font-size:11px;color:var(--muted);margin-bottom:2px"></div>
           <div class="c-tl-legend" id="circleLegend"></div>
         </div>
       </div>
     </section>
-    <section id="tab-timeline" class="panel"><div class="card"><div class="section-title">타임라인</div><div class="section-sub">맨 위는 0시, 맨 아래는 24시로 보이는 하루 직사각형 타임라인이에요.</div><div class="day-strip" id="dayStrip"></div><div class="timeline-board"><div class="timeline-grid" id="timelineGrid"></div></div></div></section>
+    <section id="tab-timeline" class="panel"><div class="card"><div class="section-title">타임라인</div><div class="section-sub">맨 위는 0시, 맨 아래는 24시로 보이는 하루 직사각형 타임라인이에요.</div><div id="timelineWakeSleep" style="display:flex;gap:14px;font-size:13px;color:var(--muted);margin-top:10px;padding:10px 14px;background:#1a1b20;border-radius:14px;border:1px solid var(--line)"></div><div class="day-strip" id="dayStrip"></div><div class="timeline-board"><div class="timeline-grid" id="timelineGrid"></div></div></div></section>
     <section id="tab-meals" class="panel"><div class="card"><div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><div><div class="section-title">식사</div><div class="section-sub">사진 여러 장, 시작 시간, 종료 시간, 배고픔 정도를 함께 기록해요.</div></div><button class="primary-btn" id="addMealBtn">식사 추가</button></div><div class="meal-grid" id="mealGrid"></div></div></section>
     <section id="tab-stats" class="panel"><div class="card"><div class="section-title">통계</div><div class="section-sub">선택한 기간 동안 활동별로 얼마나 시간을 썼는지 막대그래프로 보여줘요.</div><div class="stats-range" id="statsRange"><button class="range-btn active" data-range="day">일</button><button class="range-btn" data-range="week">주</button><button class="range-btn" data-range="month">월</button></div><div class="stats-period" id="statsPeriodLabel"></div><div class="bar-list" id="statsBars"></div></div></section>
     <section id="tab-history" class="panel"><div class="card"><div class="section-title">기록</div><div class="section-sub">날짜별로 활동, 식사, 기상/취침 기록을 다시 확인해요.</div><div class="history-list" id="historyList"></div></div></section>
@@ -178,12 +179,62 @@
     function renderTodayList(){const list=$('#todayList');if(!list)return;const items=currentDay().activities;if(!items.length){list.innerHTML=`<div class="empty">오늘 기록이 아직 없어요. 빠른 시작이나 직접 기록으로 시작해보세요.</div>`;return}list.innerHTML=items.map(item=>`<button class="row" data-edit-activity="${item.id}" style="text-align:left;border:none;width:100%"><div class="dot" style="background:${item.color||'#d0d4dd'}"></div><div><div class="row-title">${item.emoji||'✨'} ${item.label}${!item.end?' · 진행 중':''}</div><div class="row-sub">${formatTime(item.start)}${item.end?` - ${formatTime(item.end)}`:''}${item.note?` · ${item.note}`:''}</div></div><div class="row-duration">${hoursText(diffMinutes(item.start,item.end))}</div></button>`).join('')}
     function toLocalInput(iso){const d=new Date(iso);const yyyy=d.getFullYear(),mm=String(d.getMonth()+1).padStart(2,'0'),dd=String(d.getDate()).padStart(2,'0'),hh=String(d.getHours()).padStart(2,'0'),mi=String(d.getMinutes()).padStart(2,'0');return `${yyyy}-${mm}-${dd}T${hh}:${mi}`}
     function renderDayStrip(){const strip=$('#dayStrip');const base=new Date(state.selectedDate+'T00:00:00');const days=[];for(let offset=-3;offset<=3;offset+=1){const d=new Date(base);d.setDate(base.getDate()+offset);const key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;const names=['일','월','화','수','목','금','토'];days.push(`<button class="day-chip ${key===state.selectedDate?'active':''}" data-day="${key}">${d.getDate()}<br><span class="small">${names[d.getDay()]}</span></button>`)}strip.innerHTML=days.join('')}
-    function renderTimeline(){renderDayStrip();const grid=$('#timelineGrid');const day=currentDay();const parts=[];for(let hour=0;hour<=24;hour+=1){const y=(hour/24)*1200;parts.push(`<div class="time-line" style="top:${y}px"></div><div class="time-label" style="top:${y}px">${String(hour).padStart(2,'0')}:00</div>`)}day.activities.forEach(item=>{const start=new Date(item.start),end=item.end?new Date(item.end):new Date();const startMin=start.getHours()*60+start.getMinutes(),endMin=end.getHours()*60+end.getMinutes();const top=(startMin/1440)*1200;const height=Math.max(36,((Math.max(endMin,startMin+15)-startMin)/1440)*1200);parts.push(`<button class="time-block" data-edit-activity="${item.id}" style="top:${top}px;height:${height}px;background:${item.color||'#4d77ff'}"><div>${item.emoji||'✨'} ${item.label}</div><div class="mini">${formatTime(item.start)}${item.end?` - ${formatTime(item.end)}`:' - 진행 중'}</div></button>`)}) ;grid.innerHTML=parts.join('')}
-    function renderCircularTimeline(){const ring=$('#circleTimeline'),legend=$('#circleLegend');if(!ring||!legend)return;const items=currentDay().activities.slice().sort((a,b)=>new Date(a.start)-new Date(b.start));const circumference=2*Math.PI*48;const currentMoment=state.selectedDate===todayKey()?new Date():new Date(`${state.selectedDate}T23:59:00`);const handMinutes=currentMoment.getHours()*60+currentMoment.getMinutes();const handDegrees=(handMinutes/1440)*360;const selectedDateObj=new Date(`${state.selectedDate}T00:00:00`);const dayNames=['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];const arcs=items.map(item=>{const start=new Date(item.start);const end=item.end?new Date(item.end):currentMoment;const startMinutes=start.getHours()*60+start.getMinutes();const endMinutes=Math.max(startMinutes+15,end.getHours()*60+end.getMinutes());const arc=((endMinutes-startMinutes)/1440)*circumference;const offset=-(startMinutes/1440)*circumference;return `<circle class="arc" cx="60" cy="60" r="48" stroke="${item.color||'#6fa8ff'}" stroke-width="10" stroke-dasharray="${arc} ${Math.max(0,circumference-arc)}" stroke-dashoffset="${offset}"/>`}).join('');ring.innerHTML=`<svg viewBox="0 0 120 120"><circle class="c-tl-bg" cx="60" cy="60" r="48"/><g stroke="#2a2a35" stroke-width="1" transform="rotate(-90 60 60)"><line x1="60" y1="16" x2="60" y2="12" transform="rotate(0 60 60)"/><line x1="60" y1="16" x2="60" y2="14" transform="rotate(45 60 60)"/><line x1="60" y1="16" x2="60" y2="12" transform="rotate(90 60 60)"/><line x1="60" y1="16" x2="60" y2="14" transform="rotate(135 60 60)"/><line x1="60" y1="16" x2="60" y2="12" transform="rotate(180 60 60)"/><line x1="60" y1="16" x2="60" y2="14" transform="rotate(225 60 60)"/><line x1="60" y1="16" x2="60" y2="12" transform="rotate(270 60 60)"/><line x1="60" y1="16" x2="60" y2="14" transform="rotate(315 60 60)"/></g>${arcs}</svg><span class="c-tl-tick" style="top:2px;left:50%;transform:translateX(-50%)">0</span><span class="c-tl-tick" style="top:50%;right:2px;transform:translateY(-50%)">6</span><span class="c-tl-tick" style="bottom:2px;left:50%;transform:translateX(-50%)">12</span><span class="c-tl-tick" style="top:50%;left:2px;transform:translateY(-50%)">18</span><div class="c-tl-hand" id="nowHand" style="transform:translate(-50%,-100%) rotate(${handDegrees}deg)"><div class="c-tl-hand-line"></div><div class="c-tl-hand-dot"></div></div><div class="c-tl-center-dot"></div><div class="c-tl-center"><div class="c-tl-time" id="clockTime">${formatTime(currentMoment.toISOString())}</div><div class="c-tl-date" id="clockDay">${dayNames[selectedDateObj.getDay()]}</div></div>`;legend.innerHTML=items.length?items.slice(-6).reverse().map(item=>`<button class="c-tl-item ${!item.end?'active':''}" data-edit-activity="${item.id}"><div class="c-tl-dot" style="background:${item.color||'#6fa8ff'}"></div><div class="c-tl-name">${item.emoji||'✨'} ${item.label}</div><div class="c-tl-range">${formatTime(item.start)}${item.end?` - ${formatTime(item.end)}`:' - Now'}</div></button>`).join(''):`<div class="empty">오늘 기록이 아직 없어요.</div>`}
+    function renderTimeline(){renderDayStrip();const grid=$('#timelineGrid');const day=currentDay();const parts=[];for(let hour=0;hour<=24;hour+=1){const y=(hour/24)*1200;parts.push(`<div class="time-line" style="top:${y}px"></div><div class="time-label" style="top:${y}px">${String(hour).padStart(2,'0')}:00</div>`)}day.activities.forEach(item=>{const start=new Date(item.start),end=item.end?new Date(item.end):new Date();const startMin=start.getHours()*60+start.getMinutes(),endMin=end.getHours()*60+end.getMinutes();const top=(startMin/1440)*1200;const height=Math.max(36,((Math.max(endMin,startMin+15)-startMin)/1440)*1200);parts.push(`<button class="time-block" data-edit-activity="${item.id}" style="top:${top}px;height:${height}px;background:${item.color||'#4d77ff'}"><div>${item.emoji||'✨'} ${item.label}</div><div class="mini">${formatTime(item.start)}${item.end?` - ${formatTime(item.end)}`:' - 진행 중'}</div></button>`)});grid.innerHTML=parts.join('');
+      // 타임라인 탭 기상/취침 표시
+      const tlWS2=document.getElementById('timelineWakeSleep');if(tlWS2){tlWS2.innerHTML=`<span>🌅 기상 <strong style="color:#fff">${day.wake?formatTime(day.wake):'미기록'}</strong></span><span>🌙 취침 <strong style="color:#fff">${day.sleep?formatTime(day.sleep):'미기록'}</strong></span>`}
+    }
+    function renderCircularTimeline(){const ring=$('#circleTimeline'),legend=$('#circleLegend');if(!ring||!legend)return;const items=currentDay().activities.slice().sort((a,b)=>new Date(a.start)-new Date(b.start));const circumference=2*Math.PI*48;const currentMoment=state.selectedDate===todayKey()?new Date():new Date(`${state.selectedDate}T23:59:00`);const handMinutes=currentMoment.getHours()*60+currentMoment.getMinutes();const handDegrees=(handMinutes/1440)*360;const selectedDateObj=new Date(`${state.selectedDate}T00:00:00`);const dayNames=['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];const arcs=items.map(item=>{const start=new Date(item.start);const end=item.end?new Date(item.end):currentMoment;const startMinutes=start.getHours()*60+start.getMinutes();const endMinutes=Math.max(startMinutes+15,end.getHours()*60+end.getMinutes());const arc=((endMinutes-startMinutes)/1440)*circumference;const offset=-(startMinutes/1440)*circumference;return `<circle class="arc" cx="60" cy="60" r="48" stroke="${item.color||'#6fa8ff'}" stroke-width="10" stroke-dasharray="${arc} ${Math.max(0,circumference-arc)}" stroke-dashoffset="${offset}"/>`}).join('');ring.innerHTML=`<svg viewBox="0 0 120 120"><circle class="c-tl-bg" cx="60" cy="60" r="48"/><g stroke="#2a2a35" stroke-width="1" transform="rotate(-90 60 60)"><line x1="60" y1="16" x2="60" y2="12" transform="rotate(0 60 60)"/><line x1="60" y1="16" x2="60" y2="14" transform="rotate(45 60 60)"/><line x1="60" y1="16" x2="60" y2="12" transform="rotate(90 60 60)"/><line x1="60" y1="16" x2="60" y2="14" transform="rotate(135 60 60)"/><line x1="60" y1="16" x2="60" y2="12" transform="rotate(180 60 60)"/><line x1="60" y1="16" x2="60" y2="14" transform="rotate(225 60 60)"/><line x1="60" y1="16" x2="60" y2="12" transform="rotate(270 60 60)"/><line x1="60" y1="16" x2="60" y2="14" transform="rotate(315 60 60)"/></g>${arcs}</svg><span class="c-tl-tick" style="top:2px;left:50%;transform:translateX(-50%)">0</span><span class="c-tl-tick" style="top:50%;right:2px;transform:translateY(-50%)">6</span><span class="c-tl-tick" style="bottom:2px;left:50%;transform:translateX(-50%)">12</span><span class="c-tl-tick" style="top:50%;left:2px;transform:translateY(-50%)">18</span><div class="c-tl-hand" id="nowHand" style="transform:translate(-50%,-100%) rotate(${handDegrees}deg)"><div class="c-tl-hand-line"></div><div class="c-tl-hand-dot"></div></div><div class="c-tl-center-dot"></div><div class="c-tl-center"><div class="c-tl-time" id="clockTime">${formatTime(currentMoment.toISOString())}</div><div class="c-tl-date" id="clockDay">${dayNames[selectedDateObj.getDay()]}</div></div>`;legend.innerHTML=items.length?items.slice(-6).reverse().map(item=>`<button class="c-tl-item ${!item.end?'active':''}" data-edit-activity="${item.id}"><div class="c-tl-dot" style="background:${item.color||'#6fa8ff'}"></div><div class="c-tl-name">${item.emoji||'✨'} ${item.label}</div><div class="c-tl-range">${formatTime(item.start)}${item.end?` - ${formatTime(item.end)}`:' - Now'}</div></button>`).join(''):`<div class="empty">오늘 기록이 아직 없어요.</div>`;
+      // 타임로그 기상/취침 표시
+      const tlWS=document.getElementById('tlWakeSleep');if(tlWS){const day=currentDay();tlWS.innerHTML=`<span>🌅 기상 <strong style="color:#fff">${day.wake?formatTime(day.wake):'미기록'}</strong></span><span>🌙 취침 <strong style="color:#fff">${day.sleep?formatTime(day.sleep):'미기록'}</strong></span>`}
+    }
     function renderHearts(value){const images=[];for(let i=1;i<=10;i+=1){const diff=value-(i-1);const src=diff>=1?HEART_FULL:diff>=0.5?HEART_HALF:HEART_EMPTY;images.push(`<img src="${src}" alt="하트" />`)}return images.join('')}
-    function openMealEditor(id=''){const day=currentDay();const meal=id?day.meals.find(entry=>entry.id===id):null;openModal(id?'식사 기록 수정':'식사 기록',`<div class="field"><label>사진 여러 장 추가</label><input id="mealPhotosInput" type="file" accept="image/*" multiple /></div><div class="photo-grid" id="mealPhotoPreview"></div><div class="field"><label>식사 이름</label><input id="mealNameInput" value="${meal?meal.title:''}" placeholder="예: 점심 식사" /></div><div class="inline-2"><div class="field"><label>시작 시간</label><input id="mealStartInput" type="datetime-local" value="${meal?toLocalInput(meal.start):''}" /></div><div class="field"><label>종료 시간</label><input id="mealEndInput" type="datetime-local" value="${meal&&meal.end?toLocalInput(meal.end):''}" /></div></div><div class="field"><label>금액</label><input id="mealPriceInput" type="number" min="0" step="100" value="${meal&&meal.price?meal.price:''}" placeholder="선택 사항" /></div><div class="field"><label>메모</label><textarea id="mealNoteInput" placeholder="식사 메모를 남겨보세요">${meal&&meal.note?meal.note:''}</textarea></div><div class="heart-wrap"><div class="heart-head"><div class="heart-label">🍽️ 식사 전 배고픔 레벨</div><div class="heart-value" id="beforeValueLabel"></div></div><div class="hunger-gauge-bar"><div class="hunger-gauge-fill" id="beforeGaugeFill"></div></div><input class="heart-slider" id="beforeSlider" type="range" min="0" max="10" step="0.5" value="${meal?meal.before:5}" /></div><div class="heart-wrap"><div class="heart-head"><div class="heart-label">😊 식사 후 배부름 레벨</div><div class="heart-value" id="afterValueLabel"></div></div><div class="hunger-gauge-bar"><div class="hunger-gauge-fill" id="afterGaugeFill" style="background:linear-gradient(90deg,#4caf50,#a5d6a7)"></div></div><input class="heart-slider" id="afterSlider" type="range" min="0" max="10" step="0.5" value="${meal?meal.after:8}" /></div>`,`<button class="primary-btn" id="saveMealBtn" data-id="${id}" style="flex:1">저장</button>${id?`<button class="soft-btn danger" id="deleteMealBtn" data-id="${id}">삭제</button>`:''}`);const previewPhotos=meal&&meal.photos?[...meal.photos]:[];const refresh=()=>{const bv=Number($('#beforeSlider').value),av=Number($('#afterSlider').value);$('#beforeValueLabel').textContent=`${bv.toFixed(1)} / 10`;$('#afterValueLabel').textContent=`${av.toFixed(1)} / 10`;$('#beforeGaugeFill').style.width=`${(bv/10)*100}%`;$('#afterGaugeFill').style.width=`${(av/10)*100}%`;$('#mealPhotoPreview').innerHTML=previewPhotos.length?previewPhotos.map(src=>`<div class="photo-item"><img src="${src}" alt="식사 사진" /></div>`).join(''):`<div class="empty" style="grid-column:1/-1">아직 추가된 사진이 없어요.</div>`;$('#saveMealBtn').dataset.photos=JSON.stringify(previewPhotos)};['beforeSlider','afterSlider'].forEach(sid=>$('#'+sid).addEventListener('input',refresh));$('#mealPhotosInput').addEventListener('change',async event=>{const files=Array.from(event.target.files||[]);for(const file of files){previewPhotos.push(await fileToDataUrl(file))}refresh()});refresh()}
+    function openMealEditor(id=''){const day=currentDay();const meal=id?day.meals.find(entry=>entry.id===id):null;openModal(id?'식사 기록 수정':'식사 기록',`<div class="field"><label>사진 여러 장 추가</label><input id="mealPhotosInput" type="file" accept="image/*" multiple /></div><div class="photo-grid" id="mealPhotoPreview"></div><div class="field"><label>식사 이름</label><input id="mealNameInput" value="${meal?meal.title:''}" placeholder="예: 점심 식사" /></div><div class="inline-2"><div class="field"><label>시작 시간</label><input id="mealStartInput" type="datetime-local" value="${meal?toLocalInput(meal.start):''}" /></div><div class="field"><label>종료 시간</label><input id="mealEndInput" type="datetime-local" value="${meal&&meal.end?toLocalInput(meal.end):''}" /></div></div><div class="field"><label>금액</label><input id="mealPriceInput" type="number" min="0" step="100" value="${meal&&meal.price?meal.price:''}" placeholder="선택 사항" /></div><div class="field"><label>메모</label><textarea id="mealNoteInput" placeholder="식사 메모를 남겨보세요">${meal&&meal.note?meal.note:''}</textarea></div><div class="heart-wrap"><div class="heart-head"><div class="heart-label">🍽️ 식사 전 에너지</div><div class="heart-value" id="beforeValueLabel"></div></div><div class="heart-row pixel-heart-row" id="beforeHearts" data-field="before" style="cursor:pointer;user-select:none;touch-action:none"></div></div><div class="heart-wrap" style="margin-top:10px"><div class="heart-head"><div class="heart-label">😊 식사 후 에너지</div><div class="heart-value" id="afterValueLabel"></div></div><div class="heart-row pixel-heart-row" id="afterHearts" data-field="after" style="cursor:pointer;user-select:none;touch-action:none"></div></div><input type="hidden" id="beforeVal" value="${meal?meal.before:5}" /><input type="hidden" id="afterVal" value="${meal?meal.after:8}" />`,`<button class="primary-btn" id="saveMealBtn" data-id="${id}" style="flex:1">저장</button>${id?`<button class="soft-btn danger" id="deleteMealBtn" data-id="${id}">삭제</button>`:''}`);
+      const previewPhotos=meal&&meal.photos?[...meal.photos]:[];
+      function renderPixelHearts(containerId,value,labelId){
+        const container=document.getElementById(containerId);
+        if(!container)return;
+        let html='';
+        for(let i=1;i<=10;i++){
+          const filled=i<=value;
+          html+=`<div data-idx="${i}" style="width:10%;aspect-ratio:1;display:inline-flex;align-items:center;justify-content:center;font-size:clamp(18px,6vw,28px);line-height:1;transition:transform .1s;transform:${filled?'scale(1.1)':'scale(1)'}">${filled?'❤️':'🖤'}</div>`;
+        }
+        container.innerHTML=html;
+        if(labelId)document.getElementById(labelId).textContent=`${value} / 10`;
+      }
+      function setupHeartDrag(containerId,hiddenId,labelId){
+        const container=document.getElementById(containerId);
+        if(!container)return;
+        let dragging=false;
+        function getValueFromEvent(e){
+          const rect=container.getBoundingClientRect();
+          const clientX=e.touches?e.touches[0].clientX:e.clientX;
+          const ratio=Math.max(0,Math.min(1,(clientX-rect.left)/rect.width));
+          return Math.max(1,Math.min(10,Math.round(ratio*10)));
+        }
+        function update(e){
+          const v=getValueFromEvent(e);
+          document.getElementById(hiddenId).value=v;
+          renderPixelHearts(containerId,v,labelId);
+        }
+        container.addEventListener('mousedown',e=>{dragging=true;update(e)});
+        container.addEventListener('mousemove',e=>{if(dragging)update(e)});
+        document.addEventListener('mouseup',()=>{dragging=false});
+        container.addEventListener('touchstart',e=>{e.preventDefault();dragging=true;update(e)},{passive:false});
+        container.addEventListener('touchmove',e=>{e.preventDefault();if(dragging)update(e)},{passive:false});
+        container.addEventListener('touchend',()=>{dragging=false});
+        container.addEventListener('click',e=>update(e));
+      }
+      const bv=meal?meal.before:5, av=meal?meal.after:8;
+      renderPixelHearts('beforeHearts',bv,'beforeValueLabel');
+      renderPixelHearts('afterHearts',av,'afterValueLabel');
+      setupHeartDrag('beforeHearts','beforeVal','beforeValueLabel');
+      setupHeartDrag('afterHearts','afterVal','afterValueLabel');
+      const refreshPhotos=()=>{document.getElementById('mealPhotoPreview').innerHTML=previewPhotos.length?previewPhotos.map(src=>`<div class="photo-item"><img src="${src}" alt="식사 사진" /></div>`).join(''):`<div class="empty" style="grid-column:1/-1">아직 추가된 사진이 없어요.</div>`;document.getElementById('saveMealBtn').dataset.photos=JSON.stringify(previewPhotos)};
+      document.getElementById('mealPhotosInput').addEventListener('change',async event=>{const files=Array.from(event.target.files||[]);for(const file of files){previewPhotos.push(await fileToDataUrl(file))}refreshPhotos()});
+      refreshPhotos();
+    }
     function fileToDataUrl(file){return new Promise(resolve=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.readAsDataURL(file)})}
-    function saveMeal(id=''){const title=$('#mealNameInput').value.trim()||'식사',start=$('#mealStartInput').value,end=$('#mealEndInput').value,now=new Date(),resolvedStart=start?new Date(start):now,resolvedEnd=end?new Date(end):'';if(resolvedEnd&&resolvedEnd<resolvedStart){alert('종료 시간은 시작 시간보다 늦어야 해요.');return}const meal={id:id||crypto.randomUUID(),title,start:resolvedStart.toISOString(),end:resolvedEnd?resolvedEnd.toISOString():'',price:$('#mealPriceInput').value?Number($('#mealPriceInput').value):0,note:$('#mealNoteInput').value.trim(),before:Number($('#beforeSlider').value),after:Number($('#afterSlider').value),photos:JSON.parse($('#saveMealBtn').dataset.photos||'[]')};const day=currentDay();if(id){const index=day.meals.findIndex(entry=>entry.id===id);if(index>=0)day.meals[index]=meal}else day.meals.unshift(meal);saveState();closeModal();render()}
+    function saveMeal(id=''){const title=$('#mealNameInput').value.trim()||'식사',start=$('#mealStartInput').value,end=$('#mealEndInput').value,now=new Date(),resolvedStart=start?new Date(start):now,resolvedEnd=end?new Date(end):'';if(resolvedEnd&&resolvedEnd<resolvedStart){alert('종료 시간은 시작 시간보다 늦어야 해요.');return}const bv=Number(document.getElementById('beforeVal').value)||5;const av=Number(document.getElementById('afterVal').value)||8;const meal={id:id||crypto.randomUUID(),title,start:resolvedStart.toISOString(),end:resolvedEnd?resolvedEnd.toISOString():'',price:$('#mealPriceInput').value?Number($('#mealPriceInput').value):0,note:$('#mealNoteInput').value.trim(),before:bv,after:av,photos:JSON.parse($('#saveMealBtn').dataset.photos||'[]')};const day=currentDay();if(id){const index=day.meals.findIndex(entry=>entry.id===id);if(index>=0)day.meals[index]=meal}else day.meals.unshift(meal);saveState();closeModal();render()}
     function deleteMeal(id){currentDay().meals=currentDay().meals.filter(entry=>entry.id!==id);saveState();closeModal();render()}
     function renderMeals(){const grid=$('#mealGrid');const meals=currentDay().meals;if(!meals.length){grid.innerHTML=`<div class="empty" style="grid-column:1/-1">식사를 기록해보세요.</div>`;return}grid.innerHTML=meals.map(meal=>`<button class="meal-card" data-edit-meal="${meal.id}" style="border:none;text-align:left;padding:0"><div class="meal-thumb">${meal.photos&&meal.photos[0]?`<img src="${meal.photos[0]}" alt="식사 사진" />`:'사진 없음'}</div><div class="meal-body"><div class="meal-title">${meal.title}</div><div class="meal-sub">${formatTime(meal.start)}${meal.end?` - ${formatTime(meal.end)}`:''}<br>식사 전 에너지 ${meal.before.toFixed(1)} · 식사 후 에너지 ${meal.after.toFixed(1)}</div></div></button>`).join('')}
     function dateFromKey(dateKey){const [year,month,day]=dateKey.split('-').map(Number);return new Date(year,month-1,day)}
